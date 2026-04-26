@@ -1,4 +1,4 @@
-# 🧠✨ MATCHEO
+# 🧠✨ isMATCHEO
 
 > **Donde las mentes brillantes se encuentran.**
 > Una red privada para conectar emprendedores, mentes inquietas y curiosos crónicos por afinidad real — sin la presión de la imagen.
@@ -7,9 +7,9 @@
 
 ---
 
-## 💡 ¿Qué es MATCHEO?
+## 💡 ¿Qué es isMATCHEO?
 
-MATCHEO es una plataforma web (mobile-first) pensada para conectar personas con **ganas de emprender** y **gustos afines**, sin tener que exponer públicamente lo que les apasiona.
+isMATCHEO es una plataforma web (mobile-first) pensada para conectar personas con **ganas de emprender** y **gustos afines**, sin tener que exponer públicamente lo que les apasiona.
 
 La lógica está invertida respecto a las redes sociales actuales:
 

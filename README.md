@@ -3,7 +3,7 @@
 > **Donde las mentes brillantes se encuentran.**
 > Una red privada para conectar emprendedores, mentes inquietas y curiosos crónicos por afinidad real — sin la presión de la imagen.
 
-🌐 **Sitio en vivo:** [matcheo.vercel.app](https://matcheo.vercel.app)
+🌐 **Sitio en vivo:** [ismatcheo.vercel.app](https://ismatcheo.vercel.app)
 
 ---
 
@@ -91,7 +91,7 @@ Después abrí http://localhost:8000
 
 ## 📦 Deploy
 
-El sitio está en **Vercel** con auto-deploy desde este repo. Cada push a `main` republica el sitio en https://matcheo.vercel.app en ~30 segundos.
+El sitio está en **Vercel** con auto-deploy desde este repo. Cada push a `main` republica el sitio en https://ismatcheo.vercel.app en ~30 segundos.
 
 ---
 

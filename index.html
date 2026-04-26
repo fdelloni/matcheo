@@ -201,23 +201,41 @@
     display: inline-block;
   }
   .brand-i .brand-letter { display: inline-block; }
-  .brand-dot {
+
+  /* La llama de fósforo arriba de la "i" — match = matcheo + chispa */
+  .brand-flame {
     position: absolute;
-    top: -0.32em;
+    top: -0.62em;
     left: 50%;
-    width: 0.34em;
-    height: 0.34em;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #7c3aed 0%, #ec4899 50%, #f59e0b 100%);
+    width: 0.55em;
+    height: 0.78em;
     transform: translateX(-50%);
-    box-shadow: 0 0 8px rgba(236, 72, 153, 0.7), 0 0 14px rgba(245, 158, 11, 0.35);
-    animation: brand-pulse 2.4s ease-in-out infinite;
+    transform-origin: 50% 100%;
+    filter: drop-shadow(0 0 5px rgba(251, 146, 60, 0.7)) drop-shadow(0 0 10px rgba(236, 72, 153, 0.35));
+    animation: brand-flicker 2.6s ease-in-out infinite;
+    pointer-events: none;
   }
-  @keyframes brand-pulse {
-    0%, 100% { transform: translateX(-50%) scale(1); opacity: 1; }
-    50%      { transform: translateX(-50%) scale(1.28); opacity: 0.88; }
+  .brand-flame svg { width: 100%; height: 100%; display: block; }
+  @keyframes brand-flicker {
+    0%, 100% { transform: translateX(-50%) scale(1, 1) rotate(0deg);  opacity: 1; }
+    20%      { transform: translateX(-50%) scale(0.96, 1.06) rotate(-3deg); opacity: 0.96; }
+    40%      { transform: translateX(-50%) scale(1.05, 0.95) rotate(2deg); opacity: 1; }
+    60%      { transform: translateX(-50%) scale(0.98, 1.04) rotate(-2deg); opacity: 0.94; }
+    80%      { transform: translateX(-50%) scale(1.03, 0.98) rotate(1deg); opacity: 1; }
   }
   .brand-main { font-weight: 700; }
+
+  /* Icon cuadrito: dos orbes con chispa entre ellos */
+  .logo-icon { position: relative; border-radius: 0.65rem; overflow: hidden; background: linear-gradient(135deg, #170825 0%, #2d1454 100%); }
+  .logo-icon svg { display: block; width: 100%; height: 100%; }
+  .logo-icon-spark { stroke-dasharray: 3 2.5; animation: spark-dash 0.95s linear infinite; }
+  @keyframes spark-dash { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -11; } }
+  .logo-icon-orb { transform-origin: center; animation: orb-breath 3.2s ease-in-out infinite; }
+  .logo-icon-orb-2 { animation-delay: -1.6s; }
+  @keyframes orb-breath {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.08); }
+  }
 
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
@@ -234,11 +252,34 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
     <nav class="glass-strong rounded-2xl px-4 sm:px-6 py-3 flex items-center justify-between">
       <a href="#top" class="flex items-center gap-2 group">
-        <div class="relative w-9 h-9">
-          <div class="absolute inset-0 rounded-xl" style="background: var(--grad-1)"></div>
-          <div class="absolute inset-0 flex items-center justify-center text-lg">🧠</div>
+        <div class="logo-icon w-9 h-9 flex-shrink-0">
+          <svg viewBox="0 0 36 36" aria-hidden="true">
+            <defs>
+              <radialGradient id="navOrb1" cx="0.4" cy="0.35" r="0.7">
+                <stop offset="0%" stop-color="#fef3c7"/>
+                <stop offset="55%" stop-color="#fb923c"/>
+                <stop offset="100%" stop-color="#ec4899"/>
+              </radialGradient>
+              <radialGradient id="navOrb2" cx="0.6" cy="0.35" r="0.7">
+                <stop offset="0%" stop-color="#cffafe"/>
+                <stop offset="55%" stop-color="#7dd3fc"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+              </radialGradient>
+              <linearGradient id="navSpark" x1="0" x2="1" y1="0.5" y2="0.5">
+                <stop offset="0%" stop-color="#ec4899"/>
+                <stop offset="50%" stop-color="#fbbf24"/>
+                <stop offset="100%" stop-color="#22d3ee"/>
+              </linearGradient>
+              <filter id="navGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="0.7"/>
+              </filter>
+            </defs>
+            <line class="logo-icon-spark" x1="13" y1="18" x2="23" y2="18" stroke="url(#navSpark)" stroke-width="1.5" stroke-linecap="round" filter="url(#navGlow)"/>
+            <g class="logo-icon-orb"><circle cx="13" cy="18" r="6" fill="url(#navOrb1)"/></g>
+            <g class="logo-icon-orb logo-icon-orb-2"><circle cx="23" cy="18" r="6" fill="url(#navOrb2)"/></g>
+          </svg>
         </div>
-        <span class="brand-logo text-xl"><span class="brand-is"><span class="brand-i"><span class="brand-letter">ı</span><span class="brand-dot"></span></span>s</span><span class="brand-main">MATCHEO</span></span>
+        <span class="brand-logo text-xl"><span class="brand-is"><span class="brand-i"><span class="brand-letter">ı</span><span class="brand-flame"><svg viewBox="0 0 10 14" aria-hidden="true"><defs><radialGradient id="navFlame" cx="0.5" cy="0.78" r="0.62"><stop offset="0%" stop-color="#fffbeb"/><stop offset="35%" stop-color="#fde047"/><stop offset="65%" stop-color="#fb923c"/><stop offset="100%" stop-color="#dc2626"/></radialGradient></defs><path d="M5 0.6 C 2.6 3.2 1.7 5.4 2 7.6 C 2.3 10.6 3.6 12.8 5 13.4 C 6.4 12.8 7.7 10.6 8 7.6 C 8.3 5.4 7.4 3.2 5 0.6 Z" fill="url(#navFlame)"/></svg></span></span>s</span><span class="brand-main">MATCHEO</span></span>
         <span class="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest text-violet-300/80 bg-violet-500/10 border border-violet-400/20 rounded px-1.5 py-0.5">beta</span>
       </a>
       <div class="hidden md:flex items-center gap-7 text-sm font-medium text-violet-100/85">
@@ -1004,12 +1045,35 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
-        <div class="relative w-9 h-9">
-          <div class="absolute inset-0 rounded-xl" style="background: var(--grad-1)"></div>
-          <div class="absolute inset-0 flex items-center justify-center text-lg">🧠</div>
+        <div class="logo-icon w-9 h-9 flex-shrink-0">
+          <svg viewBox="0 0 36 36" aria-hidden="true">
+            <defs>
+              <radialGradient id="ftOrb1" cx="0.4" cy="0.35" r="0.7">
+                <stop offset="0%" stop-color="#fef3c7"/>
+                <stop offset="55%" stop-color="#fb923c"/>
+                <stop offset="100%" stop-color="#ec4899"/>
+              </radialGradient>
+              <radialGradient id="ftOrb2" cx="0.6" cy="0.35" r="0.7">
+                <stop offset="0%" stop-color="#cffafe"/>
+                <stop offset="55%" stop-color="#7dd3fc"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+              </radialGradient>
+              <linearGradient id="ftSpark" x1="0" x2="1" y1="0.5" y2="0.5">
+                <stop offset="0%" stop-color="#ec4899"/>
+                <stop offset="50%" stop-color="#fbbf24"/>
+                <stop offset="100%" stop-color="#22d3ee"/>
+              </linearGradient>
+              <filter id="ftGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="0.7"/>
+              </filter>
+            </defs>
+            <line class="logo-icon-spark" x1="13" y1="18" x2="23" y2="18" stroke="url(#ftSpark)" stroke-width="1.5" stroke-linecap="round" filter="url(#ftGlow)"/>
+            <g class="logo-icon-orb"><circle cx="13" cy="18" r="6" fill="url(#ftOrb1)"/></g>
+            <g class="logo-icon-orb logo-icon-orb-2"><circle cx="23" cy="18" r="6" fill="url(#ftOrb2)"/></g>
+          </svg>
         </div>
         <div>
-          <div class="brand-logo text-lg leading-tight"><span class="brand-is"><span class="brand-i"><span class="brand-letter">ı</span><span class="brand-dot"></span></span>s</span><span class="brand-main">MATCHEO</span></div>
+          <div class="brand-logo text-lg leading-tight"><span class="brand-is"><span class="brand-i"><span class="brand-letter">ı</span><span class="brand-flame"><svg viewBox="0 0 10 14" aria-hidden="true"><defs><radialGradient id="ftFlame" cx="0.5" cy="0.78" r="0.62"><stop offset="0%" stop-color="#fffbeb"/><stop offset="35%" stop-color="#fde047"/><stop offset="65%" stop-color="#fb923c"/><stop offset="100%" stop-color="#dc2626"/></radialGradient></defs><path d="M5 0.6 C 2.6 3.2 1.7 5.4 2 7.6 C 2.3 10.6 3.6 12.8 5 13.4 C 6.4 12.8 7.7 10.6 8 7.6 C 8.3 5.4 7.4 3.2 5 0.6 Z" fill="url(#ftFlame)"/></svg></span></span>s</span><span class="brand-main">MATCHEO</span></div>
           <div class="text-xs text-violet-200/60">Donde las mentes brillantes se encuentran</div>
         </div>
       </div>
@@ -1055,3 +1119,5 @@
 
 </body>
 </html>
+
+   

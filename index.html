@@ -238,52 +238,60 @@
   }
 
 
-  /* Wordmark isMATCHEO — HTML+CSS robusto, no depende de SVG <text> */
+  /* Wordmark isMATCHEO — "is" al 75% + dot apoyado, palito ensanchado */
   .brand-wordmark {
     display: inline-flex;
     align-items: baseline;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     color: #f5f3ff;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.03em;
     line-height: 1;
-    font-size: 22px;
+    font-size: 24px;
     flex-shrink: 0;
     white-space: nowrap;
     font-feature-settings: 'kern';
   }
   @media (min-width: 640px) { .brand-wordmark { font-size: 28px; } }
+  .bw-is {
+    font-size: 0.75em;
+    display: inline-flex;
+    align-items: baseline;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-right: 0.05em;
+  }
   .bw-i {
     position: relative;
     display: inline-block;
-    width: 0.18em;
-    height: 0.92em;
-    margin-right: 0.04em;
-    flex-shrink: 0;
+    width: 0.32em;
+    height: 0.74em;
+    margin-right: 0.06em;
     vertical-align: baseline;
+    flex-shrink: 0;
   }
   .bw-i::before {
     content: '';
     position: absolute;
-    top: 0.04em;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 0.16em;
+    height: 0.22em;
     background: currentColor;
-    border-radius: 0.09em;
+    border-radius: 999px;
   }
   .bw-i::after {
     content: '';
     position: absolute;
-    top: 0.32em;
+    top: 0.28em;
     left: 0;
     width: 100%;
-    height: 0.6em;
+    height: 0.46em;
     background: currentColor;
-    border-radius: 0.06em;
+    border-radius: 0.07em;
   }
   .bw-s { font-weight: 700; }
-  .bw-main { font-weight: 800; }
-  .brand-wordmark--sm { font-size: 18px; }
+  .bw-main { font-weight: 800; letter-spacing: -0.03em; }
+  .brand-wordmark--sm { font-size: 19px; }
 
   /* Lang toggle */
   .lang-toggle { display: inline-flex; align-items: center; gap: 4px; }
@@ -330,7 +338,7 @@
             <line x1="30" y1="10" x2="30" y2="48" stroke="#fbbf24" stroke-width="1.2" opacity="0.7"/>
           </svg>
         </div>
-        <div class="brand-wordmark" role="img" aria-label="isMATCHEO"><span class="bw-i" aria-hidden="true"></span><span class="bw-s" aria-hidden="true">s</span><span class="bw-main" aria-hidden="true">MATCHEO</span></div>
+        <div class="brand-wordmark" role="img" aria-label="isMATCHEO"><span class="bw-is" aria-hidden="true"><span class="bw-i"></span><span class="bw-s">s</span></span><span class="bw-main" aria-hidden="true">MATCHEO</span></div>
         <span class="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest text-violet-300/80 bg-violet-500/10 border border-violet-400/20 rounded px-1.5 py-0.5">beta</span>
       </a>
       <div class="hidden md:flex items-center gap-7 text-sm font-medium text-violet-100/85">
@@ -1133,7 +1141,7 @@
           </svg>
         </div>
         <div>
-          <div class="leading-tight"><div class="brand-wordmark brand-wordmark--sm" role="img" aria-label="isMATCHEO"><span class="bw-i" aria-hidden="true"></span><span class="bw-s" aria-hidden="true">s</span><span class="bw-main" aria-hidden="true">MATCHEO</span></div></div>
+          <div class="leading-tight"><div class="brand-wordmark brand-wordmark--sm" role="img" aria-label="isMATCHEO"><span class="bw-is" aria-hidden="true"><span class="bw-i"></span><span class="bw-s">s</span></span><span class="bw-main" aria-hidden="true">MATCHEO</span></div></div>
           <div class="text-xs text-violet-200/60" data-i18n="footer.tagline">Donde las mentes brillantes se encuentran</div>
         </div>
       </div>

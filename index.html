@@ -237,6 +237,14 @@
     50%      { opacity: 0.88; }
   }
 
+
+  /* Lang toggle */
+  .lang-toggle { display: inline-flex; align-items: center; gap: 4px; }
+  .lang-btn { background: transparent; border: none; padding: 4px 8px; border-radius: 6px; color: rgba(196,181,253,0.55); cursor: pointer; font-size: 12px; font-weight: 500; transition: all 0.15s ease; font-family: inherit; }
+  .lang-btn:hover { color: #f5f3ff; background: rgba(255,255,255,0.05); }
+  .lang-btn.active { color: #f5f3ff; background: rgba(167,139,250,0.18); }
+  .lang-sep { color: rgba(196,181,253,0.3); font-size: 11px; user-select: none; }
+
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -279,26 +287,31 @@
         <span class="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest text-violet-300/80 bg-violet-500/10 border border-violet-400/20 rounded px-1.5 py-0.5">beta</span>
       </a>
       <div class="hidden md:flex items-center gap-7 text-sm font-medium text-violet-100/85">
-        <a href="#como-funciona" class="hover:text-white transition">Cómo funciona</a>
-        <a href="#capas" class="hover:text-white transition">Capas</a>
-        <a href="#dimensiones" class="hover:text-white transition">Tu perfil</a>
-        <a href="#para-quien" class="hover:text-white transition">¿Para quién?</a>
-        <a href="#socios" class="hover:text-white transition">Socios</a>
+        <a href="#como-funciona" class="hover:text-white transition" data-i18n="nav.how">Cómo funciona</a>
+        <a href="#capas" class="hover:text-white transition" data-i18n="nav.layers">Capas</a>
+        <a href="#dimensiones" class="hover:text-white transition" data-i18n="nav.profile">Tu perfil</a>
+        <a href="#para-quien" class="hover:text-white transition" data-i18n="nav.who">¿Para quién?</a>
+        <a href="#socios" class="hover:text-white transition" data-i18n="nav.partners">Socios</a>
       </div>
       <div class="flex items-center gap-2">
-        <a href="#cta" class="hidden sm:inline-flex btn-primary text-sm" style="padding:0.6rem 1.1rem;">Sumate a la lista ✨</a>
+        <div class="lang-toggle hidden sm:inline-flex">
+          <button class="lang-btn" data-lang="es" aria-label="Español">ES</button>
+          <span class="lang-sep">·</span>
+          <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+        </div>
+        <a href="#cta" class="hidden sm:inline-flex btn-primary text-sm" data-i18n="nav.cta" style="padding:0.6rem 1.1rem;">Sumate a la lista ✨</a>
         <button id="menuBtn" class="md:hidden w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center" aria-label="Menú">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
     </nav>
     <div id="mobileMenu" class="mobile-menu hidden-menu md:hidden mt-2 glass-strong rounded-2xl p-4 flex flex-col gap-3">
-      <a href="#como-funciona" class="py-2">Cómo funciona</a>
-      <a href="#capas" class="py-2">Capas del misterio</a>
-      <a href="#dimensiones" class="py-2">Tu perfil</a>
-      <a href="#para-quien" class="py-2">¿Para quién?</a>
-      <a href="#socios" class="py-2">Socios</a>
-      <a href="#cta" class="btn-primary justify-center mt-1">Sumate ✨</a>
+      <a href="#como-funciona" class="py-2" data-i18n="nav.how">Cómo funciona</a>
+      <a href="#capas" class="py-2" data-i18n="nav.layers.long">Capas del misterio</a>
+      <a href="#dimensiones" class="py-2" data-i18n="nav.profile">Tu perfil</a>
+      <a href="#para-quien" class="py-2" data-i18n="nav.who">¿Para quién?</a>
+      <a href="#socios" class="py-2" data-i18n="nav.partners">Socios</a>
+      <a href="#cta" class="btn-primary justify-center mt-1" data-i18n="nav.beta_btn">Sumate ✨</a>
     </div>
   </div>
 </header>
@@ -311,35 +324,35 @@
       <div class="lg:col-span-7 reveal">
         <span class="chip mb-5">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          Red privada · matcheo por afinidad real
+          <span data-i18n="hero.chip">Red privada · matcheo por afinidad real</span>
         </span>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05]">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05]" data-i18n="hero.h1">
           Donde las
           <span class="grad-text">mentes brillantes</span>
           se encuentran <span class="inline-block float">🧠✨</span>
         </h1>
-        <p class="mt-5 text-lg sm:text-xl text-violet-100/85 max-w-xl">
+        <p class="mt-5 text-lg sm:text-xl text-violet-100/85 max-w-xl" data-i18n="hero.subtitle">
           isMATCHEO conecta personas con <strong class="text-white">ganas de emprender</strong> y <strong class="text-white">gustos afines</strong>.
           Sin tener que contarle al mundo lo que te apasiona: lo decís en privado, y sólo se revela cuando hay <em class="text-amber-300">match</em>.
         </p>
 
         <div class="mt-7 flex flex-wrap items-center gap-3">
-          <a href="#cta" class="btn-primary">Quiero entrar a la beta <span>→</span></a>
-          <a href="#como-funciona" class="btn-ghost">Ver cómo funciona</a>
+          <a href="#cta" class="btn-primary" data-i18n="hero.cta_primary">Quiero entrar a la beta <span>→</span></a>
+          <a href="#como-funciona" class="btn-ghost" data-i18n="hero.cta_secondary">Ver cómo funciona</a>
         </div>
 
         <div class="mt-8 grid grid-cols-3 gap-3 sm:gap-6 max-w-lg">
           <div class="text-center sm:text-left">
             <div class="font-display text-2xl sm:text-3xl font-bold grad-text-2">70%</div>
-            <div class="text-xs text-violet-200/70 mt-1">de afinidad mínima para iniciar contacto</div>
+            <div class="text-xs text-violet-200/70 mt-1" data-i18n="hero.stat1.txt">de afinidad mínima para iniciar contacto</div>
           </div>
           <div class="text-center sm:text-left">
             <div class="font-display text-2xl sm:text-3xl font-bold grad-text-2">5</div>
-            <div class="text-xs text-violet-200/70 mt-1">capas progresivas de revelación</div>
+            <div class="text-xs text-violet-200/70 mt-1" data-i18n="hero.stat2.txt">capas progresivas de revelación</div>
           </div>
           <div class="text-center sm:text-left">
             <div class="font-display text-2xl sm:text-3xl font-bold grad-text-2">12+</div>
-            <div class="text-xs text-violet-200/70 mt-1">dimensiones de tu perfil</div>
+            <div class="text-xs text-violet-200/70 mt-1" data-i18n="hero.stat3.txt">dimensiones de tu perfil</div>
           </div>
         </div>
       </div>
@@ -430,21 +443,21 @@
 <section class="py-6 border-y border-white/5">
   <div class="marquee">
     <div class="marquee-inner text-violet-100/60 text-sm font-medium">
-      <span>🧩 Compatibilidad multidimensional</span><span>·</span>
-      <span>🔐 Identidad por capas</span><span>·</span>
-      <span>🚀 Foco en emprendedores</span><span>·</span>
-      <span>🧠 Pensado para mentes inquietas</span><span>·</span>
-      <span>💬 Conversaciones con sustancia</span><span>·</span>
-      <span>📱 100% mobile-friendly</span><span>·</span>
-      <span>🎯 Match a partir de 70% de afinidad</span><span>·</span>
+      <span data-i18n="marquee.1">🧩 Compatibilidad multidimensional</span><span>·</span>
+      <span data-i18n="marquee.2">🔐 Identidad por capas</span><span>·</span>
+      <span data-i18n="marquee.3">🚀 Foco en emprendedores</span><span>·</span>
+      <span data-i18n="marquee.4">🧠 Pensado para mentes inquietas</span><span>·</span>
+      <span data-i18n="marquee.5">💬 Conversaciones con sustancia</span><span>·</span>
+      <span data-i18n="marquee.6">📱 100% mobile-friendly</span><span>·</span>
+      <span data-i18n="marquee.7">🎯 Match a partir de 70% de afinidad</span><span>·</span>
       <!-- duplicate for seamless loop -->
-      <span>🧩 Compatibilidad multidimensional</span><span>·</span>
-      <span>🔐 Identidad por capas</span><span>·</span>
-      <span>🚀 Foco en emprendedores</span><span>·</span>
-      <span>🧠 Pensado para mentes inquietas</span><span>·</span>
-      <span>💬 Conversaciones con sustancia</span><span>·</span>
-      <span>📱 100% mobile-friendly</span><span>·</span>
-      <span>🎯 Match a partir de 70% de afinidad</span><span>·</span>
+      <span data-i18n="marquee.1">🧩 Compatibilidad multidimensional</span><span>·</span>
+      <span data-i18n="marquee.2">🔐 Identidad por capas</span><span>·</span>
+      <span data-i18n="marquee.3">🚀 Foco en emprendedores</span><span>·</span>
+      <span data-i18n="marquee.4">🧠 Pensado para mentes inquietas</span><span>·</span>
+      <span data-i18n="marquee.5">💬 Conversaciones con sustancia</span><span>·</span>
+      <span data-i18n="marquee.6">📱 100% mobile-friendly</span><span>·</span>
+      <span data-i18n="marquee.7">🎯 Match a partir de 70% de afinidad</span><span>·</span>
     </div>
   </div>
 </section>
@@ -454,14 +467,14 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
       <div class="reveal">
-        <span class="eyebrow">El problema</span>
-        <h2 class="section-title mt-3">Las redes sociales actuales premian la <span class="grad-text">fachada</span>, no la <span class="grad-text-2">profundidad</span>.</h2>
-        <p class="mt-5 text-violet-100/80 text-lg">
+        <span class="eyebrow" data-i18n="problem.eyebrow">El problema</span>
+        <h2 class="section-title mt-3" data-i18n="problem.h2">Las redes sociales actuales premian la <span class="grad-text">fachada</span>, no la <span class="grad-text-2">profundidad</span>.</h2>
+        <p class="mt-5 text-violet-100/80 text-lg" data-i18n="problem.p1">
           Los emprendedores, los curiosos crónicos y quienes piensan distinto suelen sentir lo mismo:
           mucha conexión <em>aparente</em> y poca conexión <em>real</em>. Mostrar tus intereses raros en público es incómodo.
           Buscar gente afín es un trabajo a tiempo completo.
         </p>
-        <p class="mt-4 text-violet-100/80 text-lg">
+        <p class="mt-4 text-violet-100/80 text-lg" data-i18n="problem.p2">
           isMATCHEO invierte la lógica: contás todo en privado, y sólo aparecen las personas con las que <strong class="text-white">realmente</strong> coincidís.
         </p>
       </div>
@@ -469,23 +482,23 @@
       <div class="reveal grid grid-cols-2 gap-4">
         <div class="glass rounded-2xl p-5 card-hover">
           <div class="text-3xl">😶‍🌫️</div>
-          <div class="font-display font-semibold mt-3">Soledad intelectual</div>
-          <p class="text-sm text-violet-100/70 mt-1">"Nadie a mi alrededor habla de lo que me obsesiona."</p>
+          <div class="font-display font-semibold mt-3" data-i18n="problem.card1.title">Soledad intelectual</div>
+          <p class="text-sm text-violet-100/70 mt-1" data-i18n="problem.card1.txt">"Nadie a mi alrededor habla de lo que me obsesiona."</p>
         </div>
         <div class="glass rounded-2xl p-5 card-hover">
           <div class="text-3xl">🎭</div>
-          <div class="font-display font-semibold mt-3">Mostrar para encajar</div>
-          <p class="text-sm text-violet-100/70 mt-1">Filtrar tus rarezas para no espantar.</p>
+          <div class="font-display font-semibold mt-3" data-i18n="problem.card2.title">Mostrar para encajar</div>
+          <p class="text-sm text-violet-100/70 mt-1" data-i18n="problem.card2.txt">Filtrar tus rarezas para no espantar.</p>
         </div>
         <div class="glass rounded-2xl p-5 card-hover">
           <div class="text-3xl">⏳</div>
-          <div class="font-display font-semibold mt-3">Conversaciones planas</div>
-          <p class="text-sm text-violet-100/70 mt-1">Pasos 1 a 47 para llegar a un tema interesante.</p>
+          <div class="font-display font-semibold mt-3" data-i18n="problem.card3.title">Conversaciones planas</div>
+          <p class="text-sm text-violet-100/70 mt-1" data-i18n="problem.card3.txt">Pasos 1 a 47 para llegar a un tema interesante.</p>
         </div>
         <div class="glass rounded-2xl p-5 card-hover">
           <div class="text-3xl">🧭</div>
-          <div class="font-display font-semibold mt-3">Sin co-fundadores</div>
-          <p class="text-sm text-violet-100/70 mt-1">Buscar socios afines es lento, caro y aleatorio.</p>
+          <div class="font-display font-semibold mt-3" data-i18n="problem.card4.title">Sin co-fundadores</div>
+          <p class="text-sm text-violet-100/70 mt-1" data-i18n="problem.card4.txt">Buscar socios afines es lento, caro y aleatorio.</p>
         </div>
       </div>
     </div>
@@ -496,9 +509,9 @@
 <section id="como-funciona" class="py-20 sm:py-28 relative">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto reveal">
-      <span class="eyebrow">Cómo funciona</span>
-      <h2 class="section-title mt-3">Tres pasos. Cero exposición innecesaria. <span class="grad-text">Conexión real.</span></h2>
-      <p class="mt-4 text-violet-100/80">Diseñado para que muestres tu yo completo sin riesgo, y para que sólo te crucés con personas verdaderamente compatibles.</p>
+      <span class="eyebrow" data-i18n="how.eyebrow">Cómo funciona</span>
+      <h2 class="section-title mt-3" data-i18n="how.h2">Tres pasos. Cero exposición innecesaria. <span class="grad-text">Conexión real.</span></h2>
+      <p class="mt-4 text-violet-100/80" data-i18n="how.lead">Diseñado para que muestres tu yo completo sin riesgo, y para que sólo te crucés con personas verdaderamente compatibles.</p>
     </div>
 
     <div class="mt-12 grid md:grid-cols-3 gap-5 lg:gap-7">
@@ -506,30 +519,30 @@
       <div class="glass rounded-3xl p-7 card-hover reveal relative overflow-hidden">
         <div class="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20" style="background: var(--grad-1)"></div>
         <div class="text-5xl">📝</div>
-        <div class="mt-5 text-xs font-mono uppercase tracking-widest text-amber-300">Paso 1</div>
-        <h3 class="text-2xl font-bold mt-1">Contás quién sos</h3>
-        <p class="text-violet-100/75 mt-3">
+        <div class="mt-5 text-xs font-mono uppercase tracking-widest text-amber-300" data-i18n="how.step1.label">Paso 1</div>
+        <h3 class="text-2xl font-bold mt-1" data-i18n="how.step1.title">Contás quién sos</h3>
+        <p class="text-violet-100/75 mt-3" data-i18n="how.step1.txt">
           Completás un perfil profundo: gustos, hobbies, formación, valores, estilo cognitivo, intereses emprendedores.
           <span class="text-white">Todo en privado.</span> Nadie lo ve.
         </p>
         <div class="mt-5 flex flex-wrap gap-2">
-          <span class="chip">🎼 Música</span>
-          <span class="chip">📚 Lectura</span>
-          <span class="chip">🚀 Startups</span>
+          <span class="chip" data-i18n="how.step1.chip1">🎼 Música</span>
+          <span class="chip" data-i18n="how.step1.chip2">📚 Lectura</span>
+          <span class="chip" data-i18n="how.step1.chip3">🚀 Startups</span>
         </div>
       </div>
       <!-- step 2 -->
       <div class="glass rounded-3xl p-7 card-hover reveal relative overflow-hidden">
         <div class="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20" style="background: var(--grad-2)"></div>
         <div class="text-5xl">🧮</div>
-        <div class="mt-5 text-xs font-mono uppercase tracking-widest text-cyan-300">Paso 2</div>
-        <h3 class="text-2xl font-bold mt-1">El algoritmo cruza afinidades</h3>
-        <p class="text-violet-100/75 mt-3">
+        <div class="mt-5 text-xs font-mono uppercase tracking-widest text-cyan-300" data-i18n="how.step2.label">Paso 2</div>
+        <h3 class="text-2xl font-bold mt-1" data-i18n="how.step2.title">El algoritmo cruza afinidades</h3>
+        <p class="text-violet-100/75 mt-3" data-i18n="how.step2.txt">
           Calculamos compatibilidad multidimensional. A partir de <strong class="text-white">~70% de coincidencia</strong>,
           aparece un match — todavía sin nombre ni foto.
         </p>
         <div class="mt-5">
-          <div class="flex justify-between text-xs font-mono mb-1.5"><span>Compatibilidad</span><span class="text-amber-300">87%</span></div>
+          <div class="flex justify-between text-xs font-mono mb-1.5"><span data-i18n="how.step2.compat">Compatibilidad</span><span class="text-amber-300">87%</span></div>
           <div class="meter-track h-2.5"><div class="meter-fill" style="width:87%"></div></div>
         </div>
       </div>
@@ -537,9 +550,9 @@
       <div class="glass rounded-3xl p-7 card-hover reveal relative overflow-hidden">
         <div class="absolute -top-10 -right-10 w-32 h-32 rounded-full opacity-20" style="background: var(--grad-3)"></div>
         <div class="text-5xl">🎭</div>
-        <div class="mt-5 text-xs font-mono uppercase tracking-widest text-rose-300">Paso 3</div>
-        <h3 class="text-2xl font-bold mt-1">Se conocen por capas</h3>
-        <p class="text-violet-100/75 mt-3">
+        <div class="mt-5 text-xs font-mono uppercase tracking-widest text-rose-300" data-i18n="how.step3.label">Paso 3</div>
+        <h3 class="text-2xl font-bold mt-1" data-i18n="how.step3.title">Se conocen por capas</h3>
+        <p class="text-violet-100/75 mt-3" data-i18n="how.step3.txt">
           Cada nuevo "sub-match" desbloquea una capa más: avatar, voz, texto, foto, identidad.
           El misterio dura lo justo para que la conexión sea genuina.
         </p>
@@ -549,7 +562,7 @@
             <div class="w-7 h-7 rounded-full bg-gradient-to-br from-cyan-400 to-violet-500 ring-2 ring-night"></div>
             <div class="w-7 h-7 rounded-full bg-gradient-to-br from-amber-400 to-rose-400 ring-2 ring-night"></div>
           </div>
-          <span class="text-violet-200/80">Capa 3 de 5 desbloqueada</span>
+          <span class="text-violet-200/80" data-i18n="how.step3.unlocked">Capa 3 de 5 desbloqueada</span>
         </div>
       </div>
     </div>
@@ -560,9 +573,9 @@
 <section id="capas" class="py-20 sm:py-28 relative">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto reveal">
-      <span class="eyebrow">El sistema de capas</span>
-      <h2 class="section-title mt-3">5 capas de revelación, <span class="grad-text">a tu ritmo</span> 🎭✨</h2>
-      <p class="mt-4 text-violet-100/80">Cuanto más matcheás en otros aspectos, más se va revelando la otra persona. Vos decidís hasta dónde llegar.</p>
+      <span class="eyebrow" data-i18n="layers.eyebrow">El sistema de capas</span>
+      <h2 class="section-title mt-3" data-i18n="layers.h2">5 capas de revelación, <span class="grad-text">a tu ritmo</span> 🎭✨</h2>
+      <p class="mt-4 text-violet-100/80" data-i18n="layers.lead">Cuanto más matcheás en otros aspectos, más se va revelando la otra persona. Vos decidís hasta dónde llegar.</p>
     </div>
 
     <div class="mt-14 grid md:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -574,9 +587,9 @@
           <span class="text-amber-300 text-sm">🔓</span>
         </div>
         <div class="mt-3 text-4xl">🌫️</div>
-        <h4 class="font-display font-semibold mt-3">Niebla afín</h4>
-        <p class="text-xs text-violet-100/70 mt-2">Sólo ves la afinidad y un avatar abstracto. Nada de identidad.</p>
-        <div class="mt-3 text-[10px] font-mono uppercase tracking-widest text-emerald-300">≥ 70% match</div>
+        <h4 class="font-display font-semibold mt-3" data-i18n="layers.l1.title">Niebla afín</h4>
+        <p class="text-xs text-violet-100/70 mt-2" data-i18n="layers.l1.txt">Sólo ves la afinidad y un avatar abstracto. Nada de identidad.</p>
+        <div class="mt-3 text-[10px] font-mono uppercase tracking-widest text-emerald-300" data-i18n="layers.l1.req">≥ 70% match</div>
       </div>
 
       <!-- Layer 2 -->
@@ -586,9 +599,9 @@
           <span class="text-amber-300 text-sm">🔓</span>
         </div>
         <div class="mt-3 text-4xl">💬</div>
-        <h4 class="font-display font-semibold mt-3">Primer mensaje</h4>
-        <p class="text-xs text-violet-100/70 mt-2">Se habilita un chat con prompts inteligentes para romper el hielo.</p>
-        <div class="mt-3 text-[10px] font-mono uppercase tracking-widest text-emerald-300">+ 1ª interacción</div>
+        <h4 class="font-display font-semibold mt-3" data-i18n="layers.l2.title">Primer mensaje</h4>
+        <p class="text-xs text-violet-100/70 mt-2" data-i18n="layers.l2.txt">Se habilita un chat con prompts inteligentes para romper el hielo.</p>
+        <div class="mt-3 text-[10px] font-mono uppercase tracking-widest text-emerald-300" data-i18n="layers.l2.req">+ 1ª interacción</div>
       </div>
 
       <!-- Layer 3 -->
@@ -598,9 +611,9 @@
           <span class="text-amber-300 text-sm">🔓</span>
         </div>
         <div class="mt-3 text-4xl">🎨</div>
-        <h4 class="font-display font-semibold mt-3">Estilo y voz</h4>
-        <p class="text-xs text-violet-100/70 mt-2">Se revelan rasgos: profesión genérica, ciudad aproximada, tono de escritura.</p>
-        <div class="mt-3 text-[10px] font-mono uppercase tracking-widest text-emerald-300">+ sub-matches</div>
+        <h4 class="font-display font-semibold mt-3" data-i18n="layers.l3.title">Estilo y voz</h4>
+        <p class="text-xs text-violet-100/70 mt-2" data-i18n="layers.l3.txt">Se revelan rasgos: profesión genérica, ciudad aproximada, tono de escritura.</p>
+        <div class="mt-3 text-[10px] font-mono uppercase tracking-widest text-emerald-300" data-i18n="layers.l3.req">+ sub-matches</div>
       </div>
 
       <!-- Layer 4 -->
@@ -610,9 +623,9 @@
           <span class="text-amber-300 text-sm">🔓</span>
         </div>
         <div class="mt-3 text-4xl">📷</div>
-        <h4 class="font-display font-semibold mt-3">Foto difusa</h4>
-        <p class="text-xs text-violet-100/70 mt-2">Aparece una imagen artística o difuminada, voz opcional, primer nombre.</p>
-        <div class="mt-3 text-[10px] font-mono uppercase tracking-widest text-emerald-300">+ valores afines</div>
+        <h4 class="font-display font-semibold mt-3" data-i18n="layers.l4.title">Foto difusa</h4>
+        <p class="text-xs text-violet-100/70 mt-2" data-i18n="layers.l4.txt">Aparece una imagen artística o difuminada, voz opcional, primer nombre.</p>
+        <div class="mt-3 text-[10px] font-mono uppercase tracking-widest text-emerald-300" data-i18n="layers.l4.req">+ valores afines</div>
       </div>
 
       <!-- Layer 5 -->
@@ -622,14 +635,14 @@
           <span class="text-amber-300 text-sm">✨</span>
         </div>
         <div class="mt-3 text-4xl">👋</div>
-        <h4 class="font-display font-semibold mt-3">Identidad plena</h4>
-        <p class="text-xs text-violet-50/80 mt-2">Foto real, nombre completo y todos los datos. Listos para encontrarse.</p>
-        <div class="mt-3 text-[10px] font-mono uppercase tracking-widest text-amber-200">100% revelado</div>
+        <h4 class="font-display font-semibold mt-3" data-i18n="layers.l5.title">Identidad plena</h4>
+        <p class="text-xs text-violet-50/80 mt-2" data-i18n="layers.l5.txt">Foto real, nombre completo y todos los datos. Listos para encontrarse.</p>
+        <div class="mt-3 text-[10px] font-mono uppercase tracking-widest text-amber-200" data-i18n="layers.l5.req">100% revelado</div>
       </div>
 
     </div>
 
-    <p class="mt-10 text-center text-sm text-violet-100/60 max-w-2xl mx-auto reveal">
+    <p class="mt-10 text-center text-sm text-violet-100/60 max-w-2xl mx-auto reveal" data-i18n="layers.disclaimer">
       🛡️ <strong class="text-white">Vos siempre tenés el control:</strong> podés pausar, retroceder de capa o cerrar el match en cualquier momento. Tu identidad nunca se revela sin tu consentimiento explícito.
     </p>
   </div>
@@ -640,35 +653,36 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-12 items-start">
       <div class="reveal lg:sticky lg:top-32">
-        <span class="eyebrow">Tu perfil multidimensional</span>
-        <h2 class="section-title mt-3">12+ dimensiones para que el match sea <span class="grad-text-2">de verdad</span> 🧬</h2>
-        <p class="mt-5 text-violet-100/80 text-lg">
+        <span class="eyebrow" data-i18n="dim.eyebrow">Tu perfil multidimensional</span>
+        <h2 class="section-title mt-3" data-i18n="dim.h2">12+ dimensiones para que el match sea <span class="grad-text-2">de verdad</span> 🧬</h2>
+        <p class="mt-5 text-violet-100/80 text-lg" data-i18n="dim.lead">
           No alcanza con "le gusta el cine". El algoritmo cruza dimensiones de gustos, formación, estilo cognitivo,
           ambiciones y valores. Cada respuesta suma o resta peso según lo importante que sea para vos.
         </p>
         <div class="mt-6 glass rounded-2xl p-5">
           <div class="flex items-center gap-3 mb-3">
             <span class="text-2xl">🎚️</span>
-            <span class="font-semibold">Pesos personalizables</span>
+            <span class="font-semibold" data-i18n="dim.weights.title">Pesos personalizables</span>
           </div>
-          <p class="text-sm text-violet-100/75">Marcás qué dimensiones son <em>imprescindibles</em>, cuáles <em>deseables</em> y cuáles <em>indistintas</em>. El algoritmo respeta tus prioridades.</p>
+          <p class="text-sm text-violet-100/75" data-i18n="dim.weights.txt">Marcás qué dimensiones son <em>imprescindibles</em>, cuáles <em>deseables</em> y cuáles <em>indistintas</em>. El algoritmo respeta tus prioridades.</p>
         </div>
       </div>
 
       <div class="grid sm:grid-cols-2 gap-3 reveal">
         <!-- 12 dimension cards -->
-        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🎓</div><div class="font-semibold mt-2">Formación</div><p class="text-xs text-violet-100/65 mt-1">Áreas de estudio, niveles, autodidactismo.</p></div>
-        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🚀</div><div class="font-semibold mt-2">Espíritu emprendedor</div><p class="text-xs text-violet-100/65 mt-1">Etapa, vertical, perfil (founder, técnico, comercial).</p></div>
-        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">📚</div><div class="font-semibold mt-2">Lecturas</div><p class="text-xs text-violet-100/65 mt-1">Géneros, autores, frecuencia.</p></div>
-        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🎨</div><div class="font-semibold mt-2">Arte y estética</div><p class="text-xs text-violet-100/65 mt-1">Música, cine, artes visuales.</p></div>
-        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">⚽</div><div class="font-semibold mt-2">Hobbies y deportes</div><p class="text-xs text-violet-100/65 mt-1">De ajedrez a escalada, todo cuenta.</p></div>
-        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🧩</div><div class="font-semibold mt-2">Estilo cognitivo</div><p class="text-xs text-violet-100/65 mt-1">Pensamiento divergente, analítico, sistémico.</p></div>
-        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🌍</div><div class="font-semibold mt-2">Valores</div><p class="text-xs text-violet-100/65 mt-1">Lo que te mueve y lo que no negociás.</p></div>
-        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🧘</div><div class="font-semibold mt-2">Filosofía de vida</div><p class="text-xs text-violet-100/65 mt-1">Espiritualidad, ética, cosmovisión.</p></div>
-        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🗣️</div><div class="font-semibold mt-2">Idiomas y cultura</div><p class="text-xs text-violet-100/65 mt-1">Para encontrar afinidad cross-cultural.</p></div>
-        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🎯</div><div class="font-semibold mt-2">Objetivos</div><p class="text-xs text-violet-100/65 mt-1">A 1, 5 y 10 años. Personal y profesional.</p></div>
-        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🧠</div><div class="font-semibold mt-2">Curiosidades</div><p class="text-xs text-violet-100/65 mt-1">Esa obsesión rara que nadie comparte.</p></div>
-        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">💡</div><div class="font-semibold mt-2">Tipo de vínculo buscado</div><p class="text-xs text-violet-100/65 mt-1">Amistad, mentor, co-founder, pareja.</p></div>
+        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🎓</div><div class="font-semibold mt-2" data-i18n="dim.c1.t">Formación</div><p class="text-xs text-violet-100/65 mt-1" data-i18n="dim.c1.x">Áreas de estudio, niveles, autodidactismo.</p></div>
+        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🚀</div><div class="font-semibold mt-2" data-i18n="dim.c2.t">Espíritu emprendedor</div><p class="text-xs text-violet-100/65 mt-1" data-i18n="dim.c2.x">Etapa, vertical, perfil (founder, técnico, comercial).</p></div>
+        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">📚</div><div class="font-semibold mt-2" data-i18n="dim.c3.t">Lecturas</div><p class="text-xs text-violet-100/65 mt-1" data-i18n="dim.c3.x">Géneros, autores, frecuencia.</p></div>
+        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🎨</div><div class="font-semibold mt-2" data-i18n="dim.c4.t">Arte y estética</div><p class="text-xs text-violet-100/65 mt-1" data-i18n="dim.c4.x">Música, cine, artes visuales.</p></div>
+        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">⚽</div><div class="font-semibold mt-2" data-i18n="dim.c5.t">Hobbies y deportes</div><p class="text-xs text-violet-100/65 mt-1" data-i18n="dim.c5.x">De ajedrez a escalada, todo cuenta.</p></div>
+        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🧩</div><div class="font-semibold mt-2" data-i18n="dim.c6.t">Estilo cognitivo</div><p class="text-xs text-violet-100/65 mt-1" data-i18n="dim.c6.x">Pensamiento divergente, analítico, sistémico.</p></div>
+        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🌍</div><div class="font-semibold mt-2" data-i18n="dim.c7.t">Valores</div><p class="text-xs text-violet-100/65 mt-1" data-i18n="dim.c7.x">Lo que te mueve y lo que no negociás.</p></div>
+        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🧘</div><div class="font-semibold mt-2" data-i18n="dim.c8.t">Filosofía de vida</div><p class="text-xs text-violet-100/65 mt-1" data-i18n="dim.c8.x">Espiritualidad, ética, cosmovisión.</p></div>
+        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🗣️</div><div class="font-semibold mt-2" data-i18n="dim.c9.t">Idiomas y cultura</div><p class="text-xs text-violet-100/65 mt-1" data-i18n="dim.c9.x">Para encontrar afinidad cross-cultural.</p></div>
+        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🎯</div><div class="font-semibold mt-2" data-i18n="dim.c10.t">Objetivos</div><p class="text-xs text-violet-100/65 mt-1" data-i18n="dim.c10.x">A 1, 5 y 10 años. Personal y profesional.</p></div>
+        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🧠</div><div class="font-semibold mt-2" data-i18n="dim.c11.t">Curiosidades</div><p class="text-xs text-violet-100/65 mt-1" data-i18n="dim.c11.x">Esa obsesión rara que nadie comparte.</p></div>
+        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">💡</div><div class="font-semibold mt-2" data-i18n="dim.c12.t">Tipo de vínculo buscado</div><p class="text-xs text-violet-100/65 mt-1" data-i18n="dim.c12.x">Amistad, mentor, co-founder, pareja.</p></div>
+        <div class="glass rounded-2xl p-4 card-hover"><div class="text-2xl">🌐</div><div class="font-semibold mt-2" data-i18n="dim.c13.t">Modalidad de encuentro</div><p class="text-xs text-violet-100/65 mt-1" data-i18n="dim.c13.x">Solo virtual, virtual + eventual presencial, presencial.</p></div>
       </div>
     </div>
   </div>
@@ -678,9 +692,9 @@
 <section class="py-20 sm:py-28">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-2xl mx-auto reveal">
-      <span class="eyebrow">Vista previa</span>
-      <h2 class="section-title mt-3">Así se siente un <span class="grad-text">match en isMATCHEO</span> 💫</h2>
-      <p class="mt-4 text-violet-100/80">Una mirada al primer momento: misterio, datos justos y la chispa de la afinidad real.</p>
+      <span class="eyebrow" data-i18n="demo.eyebrow">Vista previa</span>
+      <h2 class="section-title mt-3" data-i18n="demo.h2">Así se siente un <span class="grad-text">match en isMATCHEO</span> 💫</h2>
+      <p class="mt-4 text-violet-100/80" data-i18n="demo.lead">Una mirada al primer momento: misterio, datos justos y la chispa de la afinidad real.</p>
     </div>
 
     <div class="mt-12 grid md:grid-cols-2 gap-6 reveal">
@@ -691,8 +705,8 @@
 
         <div class="relative">
           <div class="flex items-center justify-between">
-            <span class="chip"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Nuevo match</span>
-            <span class="text-xs font-mono text-violet-300">CAPA 01 · NIEBLA AFÍN</span>
+            <span class="chip"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> <span data-i18n="demo.new_match">Nuevo match</span></span>
+            <span class="text-xs font-mono text-violet-300" data-i18n="demo.layer_label">CAPA 01 · NIEBLA AFÍN</span>
           </div>
 
           <div class="mt-6 flex items-center gap-5">
@@ -709,12 +723,12 @@
               </svg>
             </div>
             <div>
-              <div class="font-display text-xl font-bold">Persona Misteriosa</div>
-              <div class="text-sm text-violet-100/70 mt-0.5">Identidad protegida 🛡️</div>
+              <div class="font-display text-xl font-bold" data-i18n="demo.persona">Persona Misteriosa</div>
+              <div class="text-sm text-violet-100/70 mt-0.5" data-i18n="demo.identity">Identidad protegida 🛡️</div>
               <div class="mt-3">
                 <div class="flex items-center gap-2">
                   <span class="text-3xl font-display font-bold grad-text">87%</span>
-                  <span class="text-sm text-violet-100/70">de afinidad</span>
+                  <span class="text-sm text-violet-100/70" data-i18n="demo.affinity">de afinidad</span>
                 </div>
               </div>
             </div>
@@ -722,19 +736,19 @@
 
           <div class="mt-6 space-y-3">
             <div>
-              <div class="flex justify-between text-xs mb-1.5"><span class="text-violet-100/70">🧠 Estilo cognitivo</span><span class="text-amber-300 font-mono">94%</span></div>
+              <div class="flex justify-between text-xs mb-1.5"><span class="text-violet-100/70" data-i18n="demo.dim_cog">🧠 Estilo cognitivo</span><span class="text-amber-300 font-mono">94%</span></div>
               <div class="meter-track h-2"><div class="meter-fill" style="width:94%"></div></div>
             </div>
             <div>
-              <div class="flex justify-between text-xs mb-1.5"><span class="text-violet-100/70">🚀 Espíritu emprendedor</span><span class="text-amber-300 font-mono">91%</span></div>
+              <div class="flex justify-between text-xs mb-1.5"><span class="text-violet-100/70" data-i18n="demo.dim_ent">🚀 Espíritu emprendedor</span><span class="text-amber-300 font-mono">91%</span></div>
               <div class="meter-track h-2"><div class="meter-fill" style="width:91%"></div></div>
             </div>
             <div>
-              <div class="flex justify-between text-xs mb-1.5"><span class="text-violet-100/70">📚 Lecturas</span><span class="text-amber-300 font-mono">82%</span></div>
+              <div class="flex justify-between text-xs mb-1.5"><span class="text-violet-100/70" data-i18n="demo.dim_read">📚 Lecturas</span><span class="text-amber-300 font-mono">82%</span></div>
               <div class="meter-track h-2"><div class="meter-fill" style="width:82%"></div></div>
             </div>
             <div>
-              <div class="flex justify-between text-xs mb-1.5"><span class="text-violet-100/70">🎼 Arte y estética</span><span class="text-amber-300 font-mono">78%</span></div>
+              <div class="flex justify-between text-xs mb-1.5"><span class="text-violet-100/70" data-i18n="demo.dim_art">🎼 Arte y estética</span><span class="text-amber-300 font-mono">78%</span></div>
               <div class="meter-track h-2"><div class="meter-fill" style="width:78%"></div></div>
             </div>
           </div>
@@ -748,8 +762,8 @@
           </div>
 
           <div class="mt-7 grid grid-cols-2 gap-3">
-            <button class="btn-primary justify-center w-full">💬 Iniciar charla</button>
-            <button class="btn-ghost justify-center w-full">Más tarde</button>
+            <button class="btn-primary justify-center w-full" data-i18n="demo.btn_chat">💬 Iniciar charla</button>
+            <button class="btn-ghost justify-center w-full" data-i18n="demo.btn_later">Más tarde</button>
           </div>
         </div>
       </div>
@@ -757,24 +771,24 @@
       <!-- Conversation preview -->
       <div class="glass rounded-3xl p-6 sm:p-8">
         <div class="flex items-center justify-between mb-5">
-          <span class="font-display font-semibold">💬 Romper el hielo</span>
-          <span class="text-xs font-mono text-violet-300">3 prompts inteligentes</span>
+          <span class="font-display font-semibold" data-i18n="demo.icebreaker.title">💬 Romper el hielo</span>
+          <span class="text-xs font-mono text-violet-300" data-i18n="demo.icebreaker.subtitle">3 prompts inteligentes</span>
         </div>
         <div class="space-y-3">
           <div class="rounded-2xl p-4 bg-white/5 border border-white/5 hover:border-violet-400/40 transition cursor-pointer">
-            <div class="text-sm">🤔 <strong>Pregunta de afinidad:</strong> "Si tuvieras que elegir <em>una</em> obsesión rara que comparten, ¿cuál sería?"</div>
+            <div class="text-sm" data-i18n="demo.prompt1">🤔 <strong>Pregunta de afinidad:</strong> "Si tuvieras que elegir <em>una</em> obsesión rara que comparten, ¿cuál sería?"</div>
           </div>
           <div class="rounded-2xl p-4 bg-white/5 border border-white/5 hover:border-violet-400/40 transition cursor-pointer">
-            <div class="text-sm">🚀 <strong>Pregunta emprendedora:</strong> "¿En qué problema del mundo querrías meterle 5 años de tu vida?"</div>
+            <div class="text-sm" data-i18n="demo.prompt2">🚀 <strong>Pregunta emprendedora:</strong> "¿En qué problema del mundo querrías meterle 5 años de tu vida?"</div>
           </div>
           <div class="rounded-2xl p-4 bg-white/5 border border-white/5 hover:border-violet-400/40 transition cursor-pointer">
-            <div class="text-sm">🎲 <strong>Provocación:</strong> "Defendé la idea más impopular en la que creés."</div>
+            <div class="text-sm" data-i18n="demo.prompt3">🎲 <strong>Provocación:</strong> "Defendé la idea más impopular en la que creés."</div>
           </div>
         </div>
 
         <div class="mt-7 p-4 rounded-2xl border border-amber-400/30 bg-amber-400/5">
-          <div class="text-xs uppercase tracking-widest text-amber-300 font-semibold mb-1">🔓 Próxima capa</div>
-          <p class="text-sm text-violet-50/90">Después de 5 mensajes con sustancia, se desbloquea la <strong>Capa 02</strong>: profesión genérica + ciudad aproximada.</p>
+          <div class="text-xs uppercase tracking-widest text-amber-300 font-semibold mb-1" data-i18n="demo.next.label">🔓 Próxima capa</div>
+          <p class="text-sm text-violet-50/90" data-i18n="demo.next.txt">Después de 5 mensajes con sustancia, se desbloquea la <strong>Capa 02</strong>: profesión genérica + ciudad aproximada.</p>
         </div>
       </div>
 
@@ -786,54 +800,54 @@
 <section id="para-quien" class="py-20 sm:py-28">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-2xl mx-auto reveal">
-      <span class="eyebrow">¿Para quién es isMATCHEO?</span>
-      <h2 class="section-title mt-3">Para los que <span class="grad-text">piensan distinto</span> 🦄</h2>
-      <p class="mt-4 text-violet-100/80">No es para todos. Y eso es justamente el punto.</p>
+      <span class="eyebrow" data-i18n="who.eyebrow">¿Para quién es isMATCHEO?</span>
+      <h2 class="section-title mt-3" data-i18n="who.h2">Para los que <span class="grad-text">piensan distinto</span> 🦄</h2>
+      <p class="mt-4 text-violet-100/80" data-i18n="who.lead">No es para todos. Y eso es justamente el punto.</p>
     </div>
 
     <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
 
       <div class="glass rounded-3xl p-6 card-hover reveal">
         <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl" style="background: var(--grad-1)">🧠</div>
-        <h3 class="font-display font-bold text-xl mt-5">Mentes inquietas</h3>
-        <p class="text-sm text-violet-100/70 mt-2">Personas que <strong>piensan distinto</strong> y buscan pares con quienes pensar en voz alta.</p>
+        <h3 class="font-display font-bold text-xl mt-5" data-i18n="who.p1.title">Mentes inquietas</h3>
+        <p class="text-sm text-violet-100/70 mt-2" data-i18n="who.p1.txt">Personas que <strong>piensan distinto</strong> y buscan pares con quienes pensar en voz alta.</p>
         <ul class="mt-4 space-y-1.5 text-sm text-violet-100/80">
-          <li>✦ Pensamiento divergente</li>
-          <li>✦ Curiosidad insaciable</li>
-          <li>✦ Sensibilidad por los detalles</li>
+          <li data-i18n="who.p1.b1">✦ Pensamiento divergente</li>
+          <li data-i18n="who.p1.b2">✦ Curiosidad insaciable</li>
+          <li data-i18n="who.p1.b3">✦ Sensibilidad por los detalles</li>
         </ul>
       </div>
 
       <div class="glass rounded-3xl p-6 card-hover reveal">
         <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl" style="background: var(--grad-2)">🚀</div>
-        <h3 class="font-display font-bold text-xl mt-5">Emprendedores</h3>
-        <p class="text-sm text-violet-100/70 mt-2">Founders, soloists e indie hackers buscando <strong>co-founders, mentores o aliados</strong>.</p>
+        <h3 class="font-display font-bold text-xl mt-5" data-i18n="who.p2.title">Emprendedores</h3>
+        <p class="text-sm text-violet-100/70 mt-2" data-i18n="who.p2.txt">Founders, soloists e indie hackers buscando <strong>co-founders, mentores o aliados</strong>.</p>
         <ul class="mt-4 space-y-1.5 text-sm text-violet-100/80">
-          <li>✦ Idea-stage a Serie A</li>
-          <li>✦ Tech, impact, creator</li>
-          <li>✦ Búsqueda de socios técnicos / comerciales</li>
+          <li data-i18n="who.p2.b1">✦ Idea-stage a Serie A</li>
+          <li data-i18n="who.p2.b2">✦ Tech, impact, creator</li>
+          <li data-i18n="who.p2.b3">✦ Búsqueda de socios técnicos / comerciales</li>
         </ul>
       </div>
 
       <div class="glass rounded-3xl p-6 card-hover reveal">
         <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl" style="background: var(--grad-3)">🔭</div>
-        <h3 class="font-display font-bold text-xl mt-5">Curiosos crónicos</h3>
-        <p class="text-sm text-violet-100/70 mt-2">Polímatas, autodidactas y gente que devora podcasts, papers y libros random.</p>
+        <h3 class="font-display font-bold text-xl mt-5" data-i18n="who.p3.title">Curiosos crónicos</h3>
+        <p class="text-sm text-violet-100/70 mt-2" data-i18n="who.p3.txt">Polímatas, autodidactas y gente que devora podcasts, papers y libros random.</p>
         <ul class="mt-4 space-y-1.5 text-sm text-violet-100/80">
-          <li>✦ Conexiones cross-disciplina</li>
-          <li>✦ Conversaciones largas</li>
-          <li>✦ Hobbies de nicho</li>
+          <li data-i18n="who.p3.b1">✦ Conexiones cross-disciplina</li>
+          <li data-i18n="who.p3.b2">✦ Conversaciones largas</li>
+          <li data-i18n="who.p3.b3">✦ Hobbies de nicho</li>
         </ul>
       </div>
 
       <div class="glass rounded-3xl p-6 card-hover reveal">
         <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl" style="background: linear-gradient(135deg,#22d3ee,#fbbf24)">💞</div>
-        <h3 class="font-display font-bold text-xl mt-5">Buscan vínculo profundo</h3>
-        <p class="text-sm text-violet-100/70 mt-2">Amistad, mentoría, compañía intelectual o pareja basada en compatibilidad real.</p>
+        <h3 class="font-display font-bold text-xl mt-5" data-i18n="who.p4.title">Buscan vínculo profundo</h3>
+        <p class="text-sm text-violet-100/70 mt-2" data-i18n="who.p4.txt">Amistad, mentoría, compañía intelectual o pareja basada en compatibilidad real.</p>
         <ul class="mt-4 space-y-1.5 text-sm text-violet-100/80">
-          <li>✦ Sin presión por la imagen</li>
-          <li>✦ Tiempo para conocerse</li>
-          <li>✦ Intenciones explícitas</li>
+          <li data-i18n="who.p4.b1">✦ Sin presión por la imagen</li>
+          <li data-i18n="who.p4.b2">✦ Tiempo para conocerse</li>
+          <li data-i18n="who.p4.b3">✦ Intenciones explícitas</li>
         </ul>
       </div>
 
@@ -845,40 +859,40 @@
 <section class="py-20 sm:py-28">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center max-w-2xl mx-auto reveal">
-      <span class="eyebrow">Pensado en cada detalle</span>
-      <h2 class="section-title mt-3">Funcionalidades que <span class="grad-text-2">cambian el juego</span> 🎮</h2>
+      <span class="eyebrow" data-i18n="feat.eyebrow">Pensado en cada detalle</span>
+      <h2 class="section-title mt-3" data-i18n="feat.h2">Funcionalidades que <span class="grad-text-2">cambian el juego</span> 🎮</h2>
     </div>
 
     <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
       <div class="glass rounded-2xl p-6 card-hover reveal">
         <div class="text-3xl">🛡️</div>
-        <h3 class="font-display font-semibold text-lg mt-4">Privacidad por diseño</h3>
-        <p class="text-sm text-violet-100/70 mt-2">Identidad cifrada hasta la última capa. Tus datos nunca se venden ni se comparten.</p>
+        <h3 class="font-display font-semibold text-lg mt-4" data-i18n="feat.f1.title">Privacidad por diseño</h3>
+        <p class="text-sm text-violet-100/70 mt-2" data-i18n="feat.f1.txt">Identidad cifrada hasta la última capa. Tus datos nunca se venden ni se comparten.</p>
       </div>
       <div class="glass rounded-2xl p-6 card-hover reveal">
         <div class="text-3xl">📱</div>
-        <h3 class="font-display font-semibold text-lg mt-4">Mobile-first real</h3>
-        <p class="text-sm text-violet-100/70 mt-2">Web app instalable (PWA) que funciona como app nativa en iOS y Android.</p>
+        <h3 class="font-display font-semibold text-lg mt-4" data-i18n="feat.f2.title">Mobile-first real</h3>
+        <p class="text-sm text-violet-100/70 mt-2" data-i18n="feat.f2.txt">Web app instalable (PWA) que funciona como app nativa en iOS y Android.</p>
       </div>
       <div class="glass rounded-2xl p-6 card-hover reveal">
         <div class="text-3xl">🤝</div>
-        <h3 class="font-display font-semibold text-lg mt-4">Modo co-founder</h3>
-        <p class="text-sm text-violet-100/70 mt-2">Filtros específicos para quienes buscan socios: skills, capital, vertical, dedicación.</p>
+        <h3 class="font-display font-semibold text-lg mt-4" data-i18n="feat.f3.title">Modo co-founder</h3>
+        <p class="text-sm text-violet-100/70 mt-2" data-i18n="feat.f3.txt">Filtros específicos para quienes buscan socios: skills, capital, vertical, dedicación.</p>
       </div>
       <div class="glass rounded-2xl p-6 card-hover reveal">
         <div class="text-3xl">🎲</div>
-        <h3 class="font-display font-semibold text-lg mt-4">Rituales semanales</h3>
-        <p class="text-sm text-violet-100/70 mt-2">Preguntas guiadas que te conectan con un match nuevo cada semana, sin scrolling infinito.</p>
+        <h3 class="font-display font-semibold text-lg mt-4" data-i18n="feat.f4.title">Rituales semanales</h3>
+        <p class="text-sm text-violet-100/70 mt-2" data-i18n="feat.f4.txt">Preguntas guiadas que te conectan con un match nuevo cada semana, sin scrolling infinito.</p>
       </div>
       <div class="glass rounded-2xl p-6 card-hover reveal">
         <div class="text-3xl">🎤</div>
-        <h3 class="font-display font-semibold text-lg mt-4">Mensajes de voz anónimos</h3>
-        <p class="text-sm text-violet-100/70 mt-2">Voz modulada en capas iniciales. La voz original aparece en la capa 4.</p>
+        <h3 class="font-display font-semibold text-lg mt-4" data-i18n="feat.f5.title">Mensajes de voz anónimos</h3>
+        <p class="text-sm text-violet-100/70 mt-2" data-i18n="feat.f5.txt">Voz modulada en capas iniciales. La voz original aparece en la capa 4.</p>
       </div>
       <div class="glass rounded-2xl p-6 card-hover reveal">
         <div class="text-3xl">🏛️</div>
-        <h3 class="font-display font-semibold text-lg mt-4">Comunidades temáticas</h3>
-        <p class="text-sm text-violet-100/70 mt-2">Salas opcionales por intereses (filosofía, IA, deep-tech, arte, etc.) para encontrarte sin presión 1-a-1.</p>
+        <h3 class="font-display font-semibold text-lg mt-4" data-i18n="feat.f6.title">Comunidades temáticas</h3>
+        <p class="text-sm text-violet-100/70 mt-2" data-i18n="feat.f6.txt">Salas opcionales por intereses (filosofía, IA, deep-tech, arte, etc.) para encontrarte sin presión 1-a-1.</p>
       </div>
     </div>
   </div>
@@ -893,58 +907,58 @@
 
       <div class="relative grid lg:grid-cols-12 gap-10 items-center">
         <div class="lg:col-span-7">
-          <span class="eyebrow">Para socios e inversores</span>
-          <h2 class="section-title mt-3">Construimos la red privada de las <span class="grad-text">mentes brillantes</span> 🧠💼</h2>
-          <p class="mt-5 text-violet-100/85 text-lg">
+          <span class="eyebrow" data-i18n="part.eyebrow">Para socios e inversores</span>
+          <h2 class="section-title mt-3" data-i18n="part.h2">Construimos la red privada de las <span class="grad-text">mentes brillantes</span> 🧠💼</h2>
+          <p class="mt-5 text-violet-100/85 text-lg" data-i18n="part.p1">
             isMATCHEO ataca un mercado real y desatendido: las redes sociales actuales optimizan tiempo en pantalla, no calidad de conexión.
             Nuestra propuesta: <strong class="text-white">menos volumen, más sustancia</strong>, monetización alineada con el usuario.
           </p>
 
           <div class="mt-7 grid sm:grid-cols-3 gap-4">
             <div>
-              <div class="text-xs uppercase tracking-widest text-violet-300">Modelo</div>
-              <div class="font-display text-xl font-semibold mt-1">Freemium + Premium</div>
-              <p class="text-xs text-violet-100/65 mt-1">Suscripción opcional para más matches activos, capas avanzadas y filtros.</p>
+              <div class="text-xs uppercase tracking-widest text-violet-300" data-i18n="part.b1.label">Modelo</div>
+              <div class="font-display text-xl font-semibold mt-1" data-i18n="part.b1.title">Freemium + Premium</div>
+              <p class="text-xs text-violet-100/65 mt-1" data-i18n="part.b1.txt">Suscripción opcional para más matches activos, capas avanzadas y filtros.</p>
             </div>
             <div>
-              <div class="text-xs uppercase tracking-widest text-violet-300">Vertical</div>
-              <div class="font-display text-xl font-semibold mt-1">Pro & Founders</div>
-              <p class="text-xs text-violet-100/65 mt-1">Modo co-founder y mentor pago: ticket alto, alta intención.</p>
+              <div class="text-xs uppercase tracking-widest text-violet-300" data-i18n="part.b2.label">Vertical</div>
+              <div class="font-display text-xl font-semibold mt-1" data-i18n="part.b2.title">Pro & Founders</div>
+              <p class="text-xs text-violet-100/65 mt-1" data-i18n="part.b2.txt">Modo co-founder y mentor pago: ticket alto, alta intención.</p>
             </div>
             <div>
-              <div class="text-xs uppercase tracking-widest text-violet-300">Comunidad</div>
-              <div class="font-display text-xl font-semibold mt-1">Eventos + Salas</div>
-              <p class="text-xs text-violet-100/65 mt-1">Encuentros físicos curados y comunidades temáticas premium.</p>
+              <div class="text-xs uppercase tracking-widest text-violet-300" data-i18n="part.b3.label">Comunidad</div>
+              <div class="font-display text-xl font-semibold mt-1" data-i18n="part.b3.title">Eventos + Salas</div>
+              <p class="text-xs text-violet-100/65 mt-1" data-i18n="part.b3.txt">Encuentros físicos curados y comunidades temáticas premium.</p>
             </div>
           </div>
 
           <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#cta" class="btn-primary">📩 Hablemos</a>
-            <a href="#cta" class="btn-ghost">📄 Recibir el deck</a>
+            <a href="#cta" class="btn-primary" data-i18n="part.cta1">📩 Hablemos</a>
+            <a href="#cta" class="btn-ghost" data-i18n="part.cta2">📄 Recibir el deck</a>
           </div>
         </div>
 
         <div class="lg:col-span-5">
           <div class="grid grid-cols-2 gap-3">
             <div class="glass rounded-2xl p-4">
-              <div class="text-xs text-violet-300 uppercase tracking-widest">Ventaja 01</div>
-              <div class="font-display font-bold mt-2">🎯 Targeting único</div>
-              <p class="text-xs text-violet-100/70 mt-1">Audiencia de alto poder adquisitivo y alta intención.</p>
+              <div class="text-xs text-violet-300 uppercase tracking-widest" data-i18n="part.adv1.label">Ventaja 01</div>
+              <div class="font-display font-bold mt-2" data-i18n="part.adv1.title">🎯 Targeting único</div>
+              <p class="text-xs text-violet-100/70 mt-1" data-i18n="part.adv1.txt">Audiencia de alto poder adquisitivo y alta intención.</p>
             </div>
             <div class="glass rounded-2xl p-4">
-              <div class="text-xs text-violet-300 uppercase tracking-widest">Ventaja 02</div>
-              <div class="font-display font-bold mt-2">🛡️ Sin ads invasivos</div>
-              <p class="text-xs text-violet-100/70 mt-1">Confianza como moneda principal del producto.</p>
+              <div class="text-xs text-violet-300 uppercase tracking-widest" data-i18n="part.adv2.label">Ventaja 02</div>
+              <div class="font-display font-bold mt-2" data-i18n="part.adv2.title">🛡️ Sin ads invasivos</div>
+              <p class="text-xs text-violet-100/70 mt-1" data-i18n="part.adv2.txt">Confianza como moneda principal del producto.</p>
             </div>
             <div class="glass rounded-2xl p-4">
-              <div class="text-xs text-violet-300 uppercase tracking-widest">Ventaja 03</div>
-              <div class="font-display font-bold mt-2">🔁 Retención por valor</div>
-              <p class="text-xs text-violet-100/70 mt-1">Match poco frecuente pero memorable.</p>
+              <div class="text-xs text-violet-300 uppercase tracking-widest" data-i18n="part.adv3.label">Ventaja 03</div>
+              <div class="font-display font-bold mt-2" data-i18n="part.adv3.title">🔁 Retención por valor</div>
+              <p class="text-xs text-violet-100/70 mt-1" data-i18n="part.adv3.txt">Match poco frecuente pero memorable.</p>
             </div>
             <div class="glass rounded-2xl p-4">
-              <div class="text-xs text-violet-300 uppercase tracking-widest">Ventaja 04</div>
-              <div class="font-display font-bold mt-2">🌎 Escalable global</div>
-              <p class="text-xs text-violet-100/70 mt-1">Modelo cross-cultural, multi-idioma desde el día 1.</p>
+              <div class="text-xs text-violet-300 uppercase tracking-widest" data-i18n="part.adv4.label">Ventaja 04</div>
+              <div class="font-display font-bold mt-2" data-i18n="part.adv4.title">🌎 Escalable global</div>
+              <p class="text-xs text-violet-100/70 mt-1" data-i18n="part.adv4.txt">Modelo cross-cultural, multi-idioma desde el día 1.</p>
             </div>
           </div>
         </div>
@@ -958,45 +972,52 @@
 <section class="py-20 sm:py-28">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center reveal">
-      <span class="eyebrow">Preguntas frecuentes</span>
-      <h2 class="section-title mt-3">Lo que la gente <span class="grad-text">curiosa</span> nos pregunta 🤔</h2>
+      <span class="eyebrow" data-i18n="faq.eyebrow">Preguntas frecuentes</span>
+      <h2 class="section-title mt-3" data-i18n="faq.h2">Lo que la gente <span class="grad-text">curiosa</span> nos pregunta 🤔</h2>
     </div>
 
     <div class="mt-10 space-y-3 reveal">
       <details class="group glass rounded-2xl p-5 open:bg-white/[0.06]">
         <summary class="cursor-pointer flex items-center justify-between font-semibold list-none">
-          <span>🎯 ¿Por qué 70% de afinidad y no 90%?</span>
+          <span data-i18n="faq.q1">🎯 ¿Por qué 70% de afinidad y no 90%?</span>
           <span class="text-violet-300 group-open:rotate-45 transition">+</span>
         </summary>
-        <p class="mt-3 text-sm text-violet-100/75">Porque buscamos compatibilidad <em>real</em>, no idénticos. El 70% asegura suficiente terreno común para que la conversación fluya, pero deja espacio para la diferencia, que es donde aparecen las mejores ideas y vínculos.</p>
+        <p class="mt-3 text-sm text-violet-100/75" data-i18n="faq.a1">Porque buscamos compatibilidad <em>real</em>, no idénticos. El 70% asegura suficiente terreno común para que la conversación fluya, pero deja espacio para la diferencia, que es donde aparecen las mejores ideas y vínculos.</p>
       </details>
       <details class="group glass rounded-2xl p-5 open:bg-white/[0.06]">
         <summary class="cursor-pointer flex items-center justify-between font-semibold list-none">
-          <span>🛡️ ¿Qué pasa si no quiero pasar a la próxima capa?</span>
+          <span data-i18n="faq.q2">🛡️ ¿Qué pasa si no quiero pasar a la próxima capa?</span>
           <span class="text-violet-300 group-open:rotate-45 transition">+</span>
         </summary>
-        <p class="mt-3 text-sm text-violet-100/75">Nada. Vos siempre decidís. Podés quedarte indefinidamente en cualquier capa o cerrar el match sin explicaciones. La progresión es opt-in, mutua y reversible.</p>
+        <p class="mt-3 text-sm text-violet-100/75" data-i18n="faq.a2">Nada. Vos siempre decidís. Podés quedarte indefinidamente en cualquier capa o cerrar el match sin explicaciones. La progresión es opt-in, mutua y reversible.</p>
       </details>
       <details class="group glass rounded-2xl p-5 open:bg-white/[0.06]">
         <summary class="cursor-pointer flex items-center justify-between font-semibold list-none">
-          <span>🧠 ¿Necesito algún certificado o test para entrar?</span>
+          <span data-i18n="faq.q3">🧠 ¿Necesito algún certificado o test para entrar?</span>
           <span class="text-violet-300 group-open:rotate-45 transition">+</span>
         </summary>
-        <p class="mt-3 text-sm text-violet-100/75">No. Lo único que necesitás son ganas de conocer gente afín y completar tu perfil con honestidad. Nuestro perfil multidimensional captura tu curiosidad, valores e intereses sin pedir credenciales ni tests previos.</p>
+        <p class="mt-3 text-sm text-violet-100/75" data-i18n="faq.a3">No. Lo único que necesitás son ganas de conocer gente afín y completar tu perfil con honestidad. Nuestro perfil multidimensional captura tu curiosidad, valores e intereses sin pedir credenciales ni tests previos.</p>
       </details>
       <details class="group glass rounded-2xl p-5 open:bg-white/[0.06]">
         <summary class="cursor-pointer flex items-center justify-between font-semibold list-none">
-          <span>💕 ¿Es una app de citas, de amistad o de negocios?</span>
+          <span data-i18n="faq.q4">💕 ¿Es una app de citas, de amistad o de negocios?</span>
           <span class="text-violet-300 group-open:rotate-45 transition">+</span>
         </summary>
-        <p class="mt-3 text-sm text-violet-100/75">Las tres y ninguna. Vos elegís el tipo de vínculo que buscás (amistad, mentoría, co-fundación, pareja) y el algoritmo te muestra sólo personas con la misma intención.</p>
+        <p class="mt-3 text-sm text-violet-100/75" data-i18n="faq.a4">Las tres y ninguna. Vos elegís el tipo de vínculo que buscás (amistad, mentoría, co-fundación, pareja) y el algoritmo te muestra sólo personas con la misma intención.</p>
       </details>
       <details class="group glass rounded-2xl p-5 open:bg-white/[0.06]">
         <summary class="cursor-pointer flex items-center justify-between font-semibold list-none">
-          <span>📱 ¿Hay app para iOS y Android?</span>
+          <span data-i18n="faq.q5">🌎 ¿Tengo que estar en la misma ciudad que mis matches?</span>
           <span class="text-violet-300 group-open:rotate-45 transition">+</span>
         </summary>
-        <p class="mt-3 text-sm text-violet-100/75">Sí — desde el día 1, isMATCHEO funciona como Progressive Web App instalable en cualquier celular. Las apps nativas llegan a continuación.</p>
+        <p class="mt-3 text-sm text-violet-100/75" data-i18n="faq.a5">No. Vos elegís: solo virtual (alcance global), virtual con apertura a eventual presencial, o solo presencial (con tu radio geográfico). El algoritmo respeta esa preferencia y nunca te muestra matches incompatibles.</p>
+      </details>
+      <details class="group glass rounded-2xl p-5 open:bg-white/[0.06]">
+        <summary class="cursor-pointer flex items-center justify-between font-semibold list-none">
+          <span data-i18n="faq.q6">📱 ¿Hay app para iOS y Android?</span>
+          <span class="text-violet-300 group-open:rotate-45 transition">+</span>
+        </summary>
+        <p class="mt-3 text-sm text-violet-100/75" data-i18n="faq.a6">Sí — desde el día 1, isMATCHEO funciona como Progressive Web App instalable en cualquier celular. Las apps nativas llegan a continuación.</p>
       </details>
     </div>
   </div>
@@ -1009,27 +1030,27 @@
       <div class="absolute inset-0 opacity-40" style="background: radial-gradient(circle at 30% 30%, #ec4899, transparent 50%), radial-gradient(circle at 80% 60%, #22d3ee, transparent 45%);"></div>
       <div class="relative">
         <div class="text-5xl mb-4">✨</div>
-        <h2 class="text-3xl sm:text-5xl font-bold leading-tight">
+        <h2 class="text-3xl sm:text-5xl font-bold leading-tight" data-i18n="cta.h2">
           ¿Y si la próxima persona que conozcas <br class="hidden sm:block"/>
           <span class="grad-text">cambia todo?</span>
         </h2>
-        <p class="mt-5 text-violet-100/85 text-lg max-w-xl mx-auto">
+        <p class="mt-5 text-violet-100/85 text-lg max-w-xl mx-auto" data-i18n="cta.lead">
           Sumate a la lista de espera y recibí acceso prioritario a la beta privada.
         </p>
 
         <form id="waitlist" class="mt-8 max-w-lg mx-auto flex flex-col sm:flex-row gap-3" onsubmit="event.preventDefault(); document.getElementById('thanks').classList.remove('hidden'); this.reset();">
-          <input required type="email" placeholder="tu@email.com" class="flex-1 rounded-full px-5 py-3.5 bg-white/5 border border-white/15 placeholder-violet-200/40 focus:outline-none focus:border-violet-400/60 transition" />
-          <button type="submit" class="btn-primary justify-center">Quiero ser de los primeros 🚀</button>
+          <input required type="email" placeholder="tu@email.com" data-i18n-placeholder="cta.placeholder" class="flex-1 rounded-full px-5 py-3.5 bg-white/5 border border-white/15 placeholder-violet-200/40 focus:outline-none focus:border-violet-400/60 transition" />
+          <button type="submit" class="btn-primary justify-center" data-i18n="cta.btn">Quiero ser de los primeros 🚀</button>
         </form>
 
-        <p id="thanks" class="hidden mt-4 text-emerald-300 text-sm">¡Listo! Te escribimos cuando se abra la beta. 💌</p>
+        <p id="thanks" class="hidden mt-4 text-emerald-300 text-sm" data-i18n="cta.thanks">¡Listo! Te escribimos cuando se abra la beta. 💌</p>
 
         <div class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-violet-200/60">
-          <span>🔐 Cero spam</span>
+          <span data-i18n="cta.s1">🔐 Cero spam</span>
           <span>·</span>
-          <span>⏱️ 30 segundos para completarlo</span>
+          <span data-i18n="cta.s2">⏱️ 30 segundos para completarlo</span>
           <span>·</span>
-          <span>🎁 Beneficios exclusivos para early users</span>
+          <span data-i18n="cta.s3">🎁 Beneficios exclusivos para early users</span>
         </div>
       </div>
     </div>
@@ -1066,25 +1087,25 @@
         </div>
         <div>
           <div class="brand-logo text-lg leading-tight"><span class="brand-is"><span class="brand-i"><span class="brand-letter">ı</span><span class="brand-arrows"><svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="brandArrows" x1="0" x2="1"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#ec4899"/></linearGradient></defs><path class="arrow-top" d="M6 22 L 50 22 L 44 14 M50 22 L 44 30" fill="none" stroke="url(#brandArrows)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="arrow-bot" d="M54 38 L 10 38 L 16 30 M10 38 L 16 46" fill="none" stroke="url(#brandArrows)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>s</span><span class="brand-main">MATCHEO</span></div>
-          <div class="text-xs text-violet-200/60">Donde las mentes brillantes se encuentran</div>
+          <div class="text-xs text-violet-200/60" data-i18n="footer.tagline">Donde las mentes brillantes se encuentran</div>
         </div>
       </div>
 
       <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-violet-100/70">
-        <a href="#como-funciona" class="hover:text-white">Cómo funciona</a>
-        <a href="#capas" class="hover:text-white">Capas</a>
-        <a href="#dimensiones" class="hover:text-white">Tu perfil</a>
-        <a href="#socios" class="hover:text-white">Socios</a>
+        <a href="#como-funciona" class="hover:text-white" data-i18n="nav.how">Cómo funciona</a>
+        <a href="#capas" class="hover:text-white" data-i18n="nav.layers">Capas</a>
+        <a href="#dimensiones" class="hover:text-white" data-i18n="nav.profile">Tu perfil</a>
+        <a href="#socios" class="hover:text-white" data-i18n="nav.partners">Socios</a>
         <a href="#cta" class="hover:text-white">Beta</a>
       </div>
     </div>
 
     <div class="mt-8 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-violet-200/50">
-      <div>© 2026 isMATCHEO · Hecho con 💜 para mentes inquietas.</div>
+      <div data-i18n="footer.copy">© 2026 isMATCHEO · Hecho con 💜 para mentes inquietas.</div>
       <div class="flex gap-4">
-        <a href="#" class="hover:text-white">Privacidad</a>
-        <a href="#" class="hover:text-white">Términos</a>
-        <a href="#" class="hover:text-white">Contacto</a>
+        <a href="#" class="hover:text-white" data-i18n="footer.privacy">Privacidad</a>
+        <a href="#" class="hover:text-white" data-i18n="footer.terms">Términos</a>
+        <a href="#" class="hover:text-white" data-i18n="footer.contact">Contacto</a>
       </div>
     </div>
   </div>
@@ -1107,6 +1128,39 @@
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+
+<script>
+  // i18n system
+  const I18N = {"es": {"nav.how": "Cómo funciona", "nav.layers": "Capas", "nav.profile": "Tu perfil", "nav.who": "¿Para quién?", "nav.partners": "Socios", "nav.cta": "Sumate a la lista ✨", "nav.layers.long": "Capas del misterio", "nav.beta_btn": "Sumate ✨", "hero.chip": "Red privada · matcheo por afinidad real", "hero.h1": "Donde las\n          <span class=\"grad-text\">mentes brillantes</span>\n          se encuentran <span class=\"inline-block float\">🧠✨</span>", "hero.subtitle": "isMATCHEO conecta personas con <strong class=\"text-white\">ganas de emprender</strong> y <strong class=\"text-white\">gustos afines</strong>.\n          Sin tener que contarle al mundo lo que te apasiona: lo decís en privado, y sólo se revela cuando hay <em class=\"text-amber-300\">match</em>.", "hero.cta_primary": "Quiero entrar a la beta <span>→</span>", "hero.cta_secondary": "Ver cómo funciona", "hero.stat1.num": "70%", "hero.stat1.txt": "de afinidad mínima para iniciar contacto", "hero.stat2.num": "5", "hero.stat2.txt": "capas progresivas de revelación", "hero.stat3.num": "12+", "hero.stat3.txt": "dimensiones de tu perfil", "marquee.1": "🧩 Compatibilidad multidimensional", "marquee.2": "🔐 Identidad por capas", "marquee.3": "🚀 Foco en emprendedores", "marquee.4": "🧠 Pensado para mentes inquietas", "marquee.5": "💬 Conversaciones con sustancia", "marquee.6": "📱 100% mobile-friendly", "marquee.7": "🎯 Match a partir de 70% de afinidad", "problem.eyebrow": "El problema", "problem.h2": "Las redes sociales actuales premian la <span class=\"grad-text\">fachada</span>, no la <span class=\"grad-text-2\">profundidad</span>.", "problem.p1": "Los emprendedores, los curiosos crónicos y quienes piensan distinto suelen sentir lo mismo:\n          mucha conexión <em>aparente</em> y poca conexión <em>real</em>. Mostrar tus intereses raros en público es incómodo.\n          Buscar gente afín es un trabajo a tiempo completo.", "problem.p2": "isMATCHEO invierte la lógica: contás todo en privado, y sólo aparecen las personas con las que <strong class=\"text-white\">realmente</strong> coincidís.", "problem.card1.title": "Soledad intelectual", "problem.card1.txt": "\"Nadie a mi alrededor habla de lo que me obsesiona.\"", "problem.card2.title": "Mostrar para encajar", "problem.card2.txt": "Filtrar tus rarezas para no espantar.", "problem.card3.title": "Conversaciones planas", "problem.card3.txt": "Pasos 1 a 47 para llegar a un tema interesante.", "problem.card4.title": "Sin co-fundadores", "problem.card4.txt": "Buscar socios afines es lento, caro y aleatorio.", "how.eyebrow": "Cómo funciona", "how.h2": "Tres pasos. Cero exposición innecesaria. <span class=\"grad-text\">Conexión real.</span>", "how.lead": "Diseñado para que muestres tu yo completo sin riesgo, y para que sólo te crucés con personas verdaderamente compatibles.", "how.step1.label": "Paso 1", "how.step1.title": "Contás quién sos", "how.step1.txt": "Completás un perfil profundo: gustos, hobbies, formación, valores, estilo cognitivo, intereses emprendedores.\n          <span class=\"text-white\">Todo en privado.</span> Nadie lo ve.", "how.step1.chip1": "🎼 Música", "how.step1.chip2": "📚 Lectura", "how.step1.chip3": "🚀 Startups", "how.step2.label": "Paso 2", "how.step2.title": "El algoritmo cruza afinidades", "how.step2.txt": "Calculamos compatibilidad multidimensional. A partir de <strong class=\"text-white\">~70% de coincidencia</strong>,\n          aparece un match — todavía sin nombre ni foto.", "how.step2.compat": "Compatibilidad", "how.step3.label": "Paso 3", "how.step3.title": "Se conocen por capas", "how.step3.txt": "Cada nuevo \"sub-match\" desbloquea una capa más: avatar, voz, texto, foto, identidad.\n          El misterio dura lo justo para que la conexión sea genuina.", "how.step3.unlocked": "Capa 3 de 5 desbloqueada", "layers.eyebrow": "El sistema de capas", "layers.h2": "5 capas de revelación, <span class=\"grad-text\">a tu ritmo</span> 🎭✨", "layers.lead": "Cuanto más matcheás en otros aspectos, más se va revelando la otra persona. Vos decidís hasta dónde llegar.", "layers.l1.title": "Niebla afín", "layers.l1.txt": "Sólo ves la afinidad y un avatar abstracto. Nada de identidad.", "layers.l1.req": "≥ 70% match", "layers.l2.title": "Primer mensaje", "layers.l2.txt": "Se habilita un chat con prompts inteligentes para romper el hielo.", "layers.l2.req": "+ 1ª interacción", "layers.l3.title": "Estilo y voz", "layers.l3.txt": "Se revelan rasgos: profesión genérica, ciudad aproximada, tono de escritura.", "layers.l3.req": "+ sub-matches", "layers.l4.title": "Foto difusa", "layers.l4.txt": "Aparece una imagen artística o difuminada, voz opcional, primer nombre.", "layers.l4.req": "+ valores afines", "layers.l5.title": "Identidad plena", "layers.l5.txt": "Foto real, nombre completo y todos los datos. Listos para encontrarse.", "layers.l5.req": "100% revelado", "layers.disclaimer": "🛡️ <strong class=\"text-white\">Vos siempre tenés el control:</strong> podés pausar, retroceder de capa o cerrar el match en cualquier momento. Tu identidad nunca se revela sin tu consentimiento explícito.", "dim.eyebrow": "Tu perfil multidimensional", "dim.h2": "12+ dimensiones para que el match sea <span class=\"grad-text-2\">de verdad</span> 🧬", "dim.lead": "No alcanza con \"le gusta el cine\". El algoritmo cruza dimensiones de gustos, formación, estilo cognitivo,\n          ambiciones y valores. Cada respuesta suma o resta peso según lo importante que sea para vos.", "dim.weights.title": "Pesos personalizables", "dim.weights.txt": "Marcás qué dimensiones son <em>imprescindibles</em>, cuáles <em>deseables</em> y cuáles <em>indistintas</em>. El algoritmo respeta tus prioridades.", "dim.c1.t": "Formación", "dim.c1.x": "Áreas de estudio, niveles, autodidactismo.", "dim.c2.t": "Espíritu emprendedor", "dim.c2.x": "Etapa, vertical, perfil (founder, técnico, comercial).", "dim.c3.t": "Lecturas", "dim.c3.x": "Géneros, autores, frecuencia.", "dim.c4.t": "Arte y estética", "dim.c4.x": "Música, cine, artes visuales.", "dim.c5.t": "Hobbies y deportes", "dim.c5.x": "De ajedrez a escalada, todo cuenta.", "dim.c6.t": "Estilo cognitivo", "dim.c6.x": "Pensamiento divergente, analítico, sistémico.", "dim.c7.t": "Valores", "dim.c7.x": "Lo que te mueve y lo que no negociás.", "dim.c8.t": "Filosofía de vida", "dim.c8.x": "Espiritualidad, ética, cosmovisión.", "dim.c9.t": "Idiomas y cultura", "dim.c9.x": "Para encontrar afinidad cross-cultural.", "dim.c10.t": "Objetivos", "dim.c10.x": "A 1, 5 y 10 años. Personal y profesional.", "dim.c11.t": "Curiosidades", "dim.c11.x": "Esa obsesión rara que nadie comparte.", "dim.c12.t": "Tipo de vínculo buscado", "dim.c12.x": "Amistad, mentor, co-founder, pareja.", "dim.c13.t": "Modalidad de encuentro", "dim.c13.x": "Solo virtual, virtual + eventual presencial, presencial.", "demo.eyebrow": "Vista previa", "demo.h2": "Así se siente un <span class=\"grad-text\">match en isMATCHEO</span> 💫", "demo.lead": "Una mirada al primer momento: misterio, datos justos y la chispa de la afinidad real.", "demo.new_match": "Nuevo match", "demo.layer_label": "CAPA 01 · NIEBLA AFÍN", "demo.persona": "Persona Misteriosa", "demo.identity": "Identidad protegida 🛡️", "demo.affinity": "de afinidad", "demo.dim_cog": "🧠 Estilo cognitivo", "demo.dim_ent": "🚀 Espíritu emprendedor", "demo.dim_read": "📚 Lecturas", "demo.dim_art": "🎼 Arte y estética", "demo.btn_chat": "💬 Iniciar charla", "demo.btn_later": "Más tarde", "demo.icebreaker.title": "💬 Romper el hielo", "demo.icebreaker.subtitle": "3 prompts inteligentes", "demo.prompt1": "🤔 <strong>Pregunta de afinidad:</strong> \"Si tuvieras que elegir <em>una</em> obsesión rara que comparten, ¿cuál sería?\"", "demo.prompt2": "🚀 <strong>Pregunta emprendedora:</strong> \"¿En qué problema del mundo querrías meterle 5 años de tu vida?\"", "demo.prompt3": "🎲 <strong>Provocación:</strong> \"Defendé la idea más impopular en la que creés.\"", "demo.next.label": "🔓 Próxima capa", "demo.next.txt": "Después de 5 mensajes con sustancia, se desbloquea la <strong>Capa 02</strong>: profesión genérica + ciudad aproximada.", "who.eyebrow": "¿Para quién es isMATCHEO?", "who.h2": "Para los que <span class=\"grad-text\">piensan distinto</span> 🦄", "who.lead": "No es para todos. Y eso es justamente el punto.", "who.p1.title": "Mentes inquietas", "who.p1.txt": "Personas que <strong>piensan distinto</strong> y buscan pares con quienes pensar en voz alta.", "who.p1.b1": "✦ Pensamiento divergente", "who.p1.b2": "✦ Curiosidad insaciable", "who.p1.b3": "✦ Sensibilidad por los detalles", "who.p2.title": "Emprendedores", "who.p2.txt": "Founders, soloists e indie hackers buscando <strong>co-founders, mentores o aliados</strong>.", "who.p2.b1": "✦ Idea-stage a Serie A", "who.p2.b2": "✦ Tech, impact, creator", "who.p2.b3": "✦ Búsqueda de socios técnicos / comerciales", "who.p3.title": "Curiosos crónicos", "who.p3.txt": "Polímatas, autodidactas y gente que devora podcasts, papers y libros random.", "who.p3.b1": "✦ Conexiones cross-disciplina", "who.p3.b2": "✦ Conversaciones largas", "who.p3.b3": "✦ Hobbies de nicho", "who.p4.title": "Buscan vínculo profundo", "who.p4.txt": "Amistad, mentoría, compañía intelectual o pareja basada en compatibilidad real.", "who.p4.b1": "✦ Sin presión por la imagen", "who.p4.b2": "✦ Tiempo para conocerse", "who.p4.b3": "✦ Intenciones explícitas", "feat.eyebrow": "Pensado en cada detalle", "feat.h2": "Funcionalidades que <span class=\"grad-text-2\">cambian el juego</span> 🎮", "feat.f1.title": "Privacidad por diseño", "feat.f1.txt": "Identidad cifrada hasta la última capa. Tus datos nunca se venden ni se comparten.", "feat.f2.title": "Mobile-first real", "feat.f2.txt": "Web app instalable (PWA) que funciona como app nativa en iOS y Android.", "feat.f3.title": "Modo co-founder", "feat.f3.txt": "Filtros específicos para quienes buscan socios: skills, capital, vertical, dedicación.", "feat.f4.title": "Rituales semanales", "feat.f4.txt": "Preguntas guiadas que te conectan con un match nuevo cada semana, sin scrolling infinito.", "feat.f5.title": "Mensajes de voz anónimos", "feat.f5.txt": "Voz modulada en capas iniciales. La voz original aparece en la capa 4.", "feat.f6.title": "Comunidades temáticas", "feat.f6.txt": "Salas opcionales por intereses (filosofía, IA, deep-tech, arte, etc.) para encontrarte sin presión 1-a-1.", "part.eyebrow": "Para socios e inversores", "part.h2": "Construimos la red privada de las <span class=\"grad-text\">mentes brillantes</span> 🧠💼", "part.p1": "isMATCHEO ataca un mercado real y desatendido: las redes sociales actuales optimizan tiempo en pantalla, no calidad de conexión.\n            Nuestra propuesta: <strong class=\"text-white\">menos volumen, más sustancia</strong>, monetización alineada con el usuario.", "part.b1.label": "Modelo", "part.b1.title": "Freemium + Premium", "part.b1.txt": "Suscripción opcional para más matches activos, capas avanzadas y filtros.", "part.b2.label": "Vertical", "part.b2.title": "Pro & Founders", "part.b2.txt": "Modo co-founder y mentor pago: ticket alto, alta intención.", "part.b3.label": "Comunidad", "part.b3.title": "Eventos + Salas", "part.b3.txt": "Encuentros físicos curados y comunidades temáticas premium.", "part.cta1": "📩 Hablemos", "part.cta2": "📄 Recibir el deck", "part.adv1.label": "Ventaja 01", "part.adv1.title": "🎯 Targeting único", "part.adv1.txt": "Audiencia de alto poder adquisitivo y alta intención.", "part.adv2.label": "Ventaja 02", "part.adv2.title": "🛡️ Sin ads invasivos", "part.adv2.txt": "Confianza como moneda principal del producto.", "part.adv3.label": "Ventaja 03", "part.adv3.title": "🔁 Retención por valor", "part.adv3.txt": "Match poco frecuente pero memorable.", "part.adv4.label": "Ventaja 04", "part.adv4.title": "🌎 Escalable global", "part.adv4.txt": "Modelo cross-cultural, multi-idioma desde el día 1.", "faq.eyebrow": "Preguntas frecuentes", "faq.h2": "Lo que la gente <span class=\"grad-text\">curiosa</span> nos pregunta 🤔", "faq.q1": "🎯 ¿Por qué 70% de afinidad y no 90%?", "faq.a1": "Porque buscamos compatibilidad <em>real</em>, no idénticos. El 70% asegura suficiente terreno común para que la conversación fluya, pero deja espacio para la diferencia, que es donde aparecen las mejores ideas y vínculos.", "faq.q2": "🛡️ ¿Qué pasa si no quiero pasar a la próxima capa?", "faq.a2": "Nada. Vos siempre decidís. Podés quedarte indefinidamente en cualquier capa o cerrar el match sin explicaciones. La progresión es opt-in, mutua y reversible.", "faq.q3": "🧠 ¿Necesito algún certificado o test para entrar?", "faq.a3": "No. Lo único que necesitás son ganas de conocer gente afín y completar tu perfil con honestidad. Nuestro perfil multidimensional captura tu curiosidad, valores e intereses sin pedir credenciales ni tests previos.", "faq.q4": "💕 ¿Es una app de citas, de amistad o de negocios?", "faq.a4": "Las tres y ninguna. Vos elegís el tipo de vínculo que buscás (amistad, mentoría, co-fundación, pareja) y el algoritmo te muestra sólo personas con la misma intención.", "faq.q5": "🌎 ¿Tengo que estar en la misma ciudad que mis matches?", "faq.a5": "No. Vos elegís: solo virtual (alcance global), virtual con apertura a eventual presencial, o solo presencial (con tu radio geográfico). El algoritmo respeta esa preferencia y nunca te muestra matches incompatibles.", "faq.q6": "📱 ¿Hay app para iOS y Android?", "faq.a6": "Sí — desde el día 1, isMATCHEO funciona como Progressive Web App instalable en cualquier celular. Las apps nativas llegan a continuación.", "cta.h2": "¿Y si la próxima persona que conozcas <br class=\"hidden sm:block\"/>\n          <span class=\"grad-text\">cambia todo?</span>", "cta.lead": "Sumate a la lista de espera y recibí acceso prioritario a la beta privada.", "cta.placeholder": "tu@email.com", "cta.btn": "Quiero ser de los primeros 🚀", "cta.thanks": "¡Listo! Te escribimos cuando se abra la beta. 💌", "cta.s1": "🔐 Cero spam", "cta.s2": "⏱️ 30 segundos para completarlo", "cta.s3": "🎁 Beneficios exclusivos para early users", "footer.tagline": "Donde las mentes brillantes se encuentran", "footer.copy": "© 2026 isMATCHEO · Hecho con 💜 para mentes inquietas.", "footer.privacy": "Privacidad", "footer.terms": "Términos", "footer.contact": "Contacto"}, "en": {"nav.how": "How it works", "nav.layers": "Layers", "nav.profile": "Your profile", "nav.who": "Who is it for?", "nav.partners": "Partners", "nav.cta": "Join the waitlist ✨", "nav.layers.long": "Mystery layers", "nav.beta_btn": "Join ✨", "hero.chip": "Private network · matchmaking by real affinity", "hero.h1": "Where\n          <span class=\"grad-text\">brilliant minds</span>\n          meet <span class=\"inline-block float\">🧠✨</span>", "hero.subtitle": "isMATCHEO connects people with <strong class=\"text-white\">drive to build</strong> and <strong class=\"text-white\">shared interests</strong>.\n          You don't have to broadcast what you're into: tell us privately, and it's only revealed when there's a real <em class=\"text-amber-300\">match</em>.", "hero.cta_primary": "I want into the beta <span>→</span>", "hero.cta_secondary": "See how it works", "hero.stat1.num": "70%", "hero.stat1.txt": "minimum affinity to spark contact", "hero.stat2.num": "5", "hero.stat2.txt": "progressive layers of revelation", "hero.stat3.num": "12+", "hero.stat3.txt": "dimensions of your profile", "marquee.1": "🧩 Multidimensional compatibility", "marquee.2": "🔐 Identity in layers", "marquee.3": "🚀 Built for builders", "marquee.4": "🧠 Made for restless minds", "marquee.5": "💬 Conversations with substance", "marquee.6": "📱 100% mobile-friendly", "marquee.7": "🎯 Match starting at 70% affinity", "problem.eyebrow": "The problem", "problem.h2": "Today's social networks reward <span class=\"grad-text\">the facade</span>, not <span class=\"grad-text-2\">depth</span>.", "problem.p1": "Builders, chronic learners, and people who think differently usually feel the same way:\n          plenty of <em>apparent</em> connection, very little <em>real</em> connection. Showing your odd interests in public is uncomfortable.\n          Finding people on your wavelength becomes a full-time job.", "problem.p2": "isMATCHEO flips the logic: you share everything privately, and only people you <strong class=\"text-white\">truly</strong> click with show up.", "problem.card1.title": "Intellectual loneliness", "problem.card1.txt": "\"Nobody around me talks about what obsesses me.\"", "problem.card2.title": "Filtering yourself to fit in", "problem.card2.txt": "Hiding your weird stuff so you don't scare people off.", "problem.card3.title": "Shallow conversations", "problem.card3.txt": "Steps 1 to 47 before reaching anything interesting.", "problem.card4.title": "No co-founders", "problem.card4.txt": "Finding aligned partners is slow, expensive, and random.", "how.eyebrow": "How it works", "how.h2": "Three steps. Zero unnecessary exposure. <span class=\"grad-text\">Real connection.</span>", "how.lead": "Designed so you can show your full self without risk, and only cross paths with people you're truly compatible with.", "how.step1.label": "Step 1", "how.step1.title": "Tell us who you are", "how.step1.txt": "You build a deep profile: tastes, hobbies, education, values, cognitive style, entrepreneurial interests.\n          <span class=\"text-white\">All private.</span> Nobody sees it.", "how.step1.chip1": "🎼 Music", "how.step1.chip2": "📚 Reading", "how.step1.chip3": "🚀 Startups", "how.step2.label": "Step 2", "how.step2.title": "The algorithm cross-checks affinities", "how.step2.txt": "We compute multidimensional compatibility. Starting at <strong class=\"text-white\">~70% overlap</strong>,\n          a match appears — still no name, still no photo.", "how.step2.compat": "Compatibility", "how.step3.label": "Step 3", "how.step3.title": "You meet through layers", "how.step3.txt": "Each new \"sub-match\" unlocks one more layer: avatar, voice, text, photo, identity.\n          The mystery lasts just long enough for the connection to be genuine.", "how.step3.unlocked": "Layer 3 of 5 unlocked", "layers.eyebrow": "The layer system", "layers.h2": "5 layers of revelation, <span class=\"grad-text\">at your pace</span> 🎭✨", "layers.lead": "The more you match on other aspects, the more the other person reveals. You decide how far to go.", "layers.l1.title": "Affinity fog", "layers.l1.txt": "You only see the affinity score and an abstract avatar. No identity yet.", "layers.l1.req": "≥ 70% match", "layers.l2.title": "First message", "layers.l2.txt": "A chat opens with smart prompts to break the ice.", "layers.l2.req": "+ 1st interaction", "layers.l3.title": "Style and voice", "layers.l3.txt": "Traits emerge: rough profession, approximate city, writing style.", "layers.l3.req": "+ sub-matches", "layers.l4.title": "Blurred photo", "layers.l4.txt": "An artistic or blurred image appears, optional voice, first name.", "layers.l4.req": "+ shared values", "layers.l5.title": "Full identity", "layers.l5.txt": "Real photo, full name, all the data. Ready to meet.", "layers.l5.req": "100% revealed", "layers.disclaimer": "🛡️ <strong class=\"text-white\">You're always in control:</strong> you can pause, step back a layer, or close the match at any time. Your identity is never revealed without your explicit consent.", "dim.eyebrow": "Your multidimensional profile", "dim.h2": "12+ dimensions so the match is <span class=\"grad-text-2\">for real</span> 🧬", "dim.lead": "\"Likes movies\" doesn't cut it. The algorithm cross-checks dimensions of taste, education, cognitive style,\n          ambitions, and values. Each answer adds or subtracts weight based on how much it matters to you.", "dim.weights.title": "Customizable weights", "dim.weights.txt": "You mark each dimension as <em>essential</em>, <em>desired</em>, or <em>doesn't matter</em>. The algorithm respects your priorities.", "dim.c1.t": "Education", "dim.c1.x": "Fields of study, levels, self-taught skills.", "dim.c2.t": "Entrepreneurial drive", "dim.c2.x": "Stage, vertical, profile (founder, technical, commercial).", "dim.c3.t": "Reading", "dim.c3.x": "Genres, authors, frequency.", "dim.c4.t": "Art and aesthetics", "dim.c4.x": "Music, film, visual arts.", "dim.c5.t": "Hobbies and sports", "dim.c5.x": "From chess to climbing, it all counts.", "dim.c6.t": "Cognitive style", "dim.c6.x": "Divergent, analytical, systemic thinking.", "dim.c7.t": "Values", "dim.c7.x": "What moves you and what's non-negotiable.", "dim.c8.t": "Life philosophy", "dim.c8.x": "Spirituality, ethics, worldview.", "dim.c9.t": "Languages and culture", "dim.c9.x": "To find cross-cultural affinity.", "dim.c10.t": "Goals", "dim.c10.x": "1, 5, and 10 years out. Personal and professional.", "dim.c11.t": "Curiosities", "dim.c11.x": "That weird obsession nobody else shares.", "dim.c12.t": "Type of bond sought", "dim.c12.x": "Friendship, mentor, co-founder, partner.", "dim.c13.t": "Encounter mode", "dim.c13.x": "Online only, online + eventually in person, in person.", "demo.eyebrow": "Preview", "demo.h2": "What a <span class=\"grad-text\">match on isMATCHEO</span> feels like 💫", "demo.lead": "A glimpse at the first moment: mystery, just enough data, and the spark of real affinity.", "demo.new_match": "New match", "demo.layer_label": "LAYER 01 · AFFINITY FOG", "demo.persona": "Mysterious Person", "demo.identity": "Identity protected 🛡️", "demo.affinity": "affinity", "demo.dim_cog": "🧠 Cognitive style", "demo.dim_ent": "🚀 Entrepreneurial drive", "demo.dim_read": "📚 Reading", "demo.dim_art": "🎼 Art and aesthetics", "demo.btn_chat": "💬 Start chatting", "demo.btn_later": "Later", "demo.icebreaker.title": "💬 Break the ice", "demo.icebreaker.subtitle": "3 smart prompts", "demo.prompt1": "🤔 <strong>Affinity question:</strong> \"If you had to pick <em>one</em> shared weird obsession, what would it be?\"", "demo.prompt2": "🚀 <strong>Builder question:</strong> \"Which problem in the world would you give 5 years of your life to?\"", "demo.prompt3": "🎲 <strong>Provocation:</strong> \"Defend the most unpopular idea you actually believe.\"", "demo.next.label": "🔓 Next layer", "demo.next.txt": "After 5 substantive messages, <strong>Layer 02</strong> unlocks: rough profession + approximate city.", "who.eyebrow": "Who is isMATCHEO for?", "who.h2": "For people who <span class=\"grad-text\">think differently</span> 🦄", "who.lead": "Not for everyone. And that's exactly the point.", "who.p1.title": "Restless minds", "who.p1.txt": "People who <strong>think differently</strong> and want peers to think out loud with.", "who.p1.b1": "✦ Divergent thinking", "who.p1.b2": "✦ Insatiable curiosity", "who.p1.b3": "✦ Eye for detail", "who.p2.title": "Builders", "who.p2.txt": "Founders, soloists, and indie hackers looking for <strong>co-founders, mentors, or allies</strong>.", "who.p2.b1": "✦ Idea-stage to Series A", "who.p2.b2": "✦ Tech, impact, creator", "who.p2.b3": "✦ Looking for technical / commercial partners", "who.p3.title": "Chronic learners", "who.p3.txt": "Polymaths, autodidacts, and people who devour podcasts, papers, and random books.", "who.p3.b1": "✦ Cross-disciplinary connections", "who.p3.b2": "✦ Long conversations", "who.p3.b3": "✦ Niche hobbies", "who.p4.title": "Seeking deep bonds", "who.p4.txt": "Friendship, mentorship, intellectual companionship, or partner based on real compatibility.", "who.p4.b1": "✦ No pressure on looks", "who.p4.b2": "✦ Time to know each other", "who.p4.b3": "✦ Explicit intentions", "feat.eyebrow": "Built with care", "feat.h2": "Features that <span class=\"grad-text-2\">change the game</span> 🎮", "feat.f1.title": "Privacy by design", "feat.f1.txt": "Identity encrypted until the last layer. Your data is never sold or shared.", "feat.f2.title": "Truly mobile-first", "feat.f2.txt": "Installable web app (PWA) that works like a native app on iOS and Android.", "feat.f3.title": "Co-founder mode", "feat.f3.txt": "Specific filters for those seeking partners: skills, capital, vertical, dedication.", "feat.f4.title": "Weekly rituals", "feat.f4.txt": "Guided questions that connect you with a new match each week, no infinite scrolling.", "feat.f5.title": "Anonymous voice messages", "feat.f5.txt": "Voice modulated in early layers. Original voice appears at layer 4.", "feat.f6.title": "Themed communities", "feat.f6.txt": "Optional rooms by interests (philosophy, AI, deep-tech, art, etc.) to meet without 1-on-1 pressure.", "part.eyebrow": "For partners and investors", "part.h2": "We're building the private network of <span class=\"grad-text\">brilliant minds</span> 🧠💼", "part.p1": "isMATCHEO targets a real, underserved market: today's social networks optimize screen time, not connection quality.\n            Our take: <strong class=\"text-white\">less volume, more substance</strong>, monetization aligned with the user.", "part.b1.label": "Model", "part.b1.title": "Freemium + Premium", "part.b1.txt": "Optional subscription for more active matches, advanced layers, and filters.", "part.b2.label": "Vertical", "part.b2.title": "Pro & Founders", "part.b2.txt": "Paid co-founder and mentor mode: high ticket, high intent.", "part.b3.label": "Community", "part.b3.title": "Events + Rooms", "part.b3.txt": "Curated in-person meetups and premium themed communities.", "part.cta1": "📩 Let's talk", "part.cta2": "📄 Get the deck", "part.adv1.label": "Edge 01", "part.adv1.title": "🎯 Unique targeting", "part.adv1.txt": "High-purchasing-power, high-intent audience.", "part.adv2.label": "Edge 02", "part.adv2.title": "🛡️ No invasive ads", "part.adv2.txt": "Trust as the product's main currency.", "part.adv3.label": "Edge 03", "part.adv3.title": "🔁 Retention by value", "part.adv3.txt": "Infrequent matches, but memorable.", "part.adv4.label": "Edge 04", "part.adv4.title": "🌎 Globally scalable", "part.adv4.txt": "Cross-cultural, multi-language model from day 1.", "faq.eyebrow": "Frequently asked", "faq.h2": "What <span class=\"grad-text\">curious people</span> ask us 🤔", "faq.q1": "🎯 Why 70% affinity and not 90%?", "faq.a1": "Because we want <em>real</em> compatibility, not identical clones. 70% guarantees enough common ground for the conversation to flow, while leaving room for difference, which is where the best ideas and bonds come from.", "faq.q2": "🛡️ What if I don't want to move to the next layer?", "faq.a2": "Nothing. You always decide. You can stay indefinitely on any layer, or close the match without explanation. Progression is opt-in, mutual, and reversible.", "faq.q3": "🧠 Do I need any certificate or test to join?", "faq.a3": "No. All you need is the desire to meet people on your wavelength and to fill in your profile honestly. Our multidimensional profile captures your curiosity, values, and interests without asking for credentials or prior tests.", "faq.q4": "💕 Is this a dating app, a friendship app, or a business app?", "faq.a4": "All three and none. You pick the type of bond you're looking for (friendship, mentorship, co-founding, partner) and the algorithm only shows you people with the same intention.", "faq.q5": "🌎 Do I have to be in the same city as my matches?", "faq.a5": "No. You choose: online only (global reach), online with openness to eventual in-person, or in-person only (with your geographic radius). The algorithm respects that preference and never shows you incompatible matches.", "faq.q6": "📱 Is there an app for iOS and Android?", "faq.a6": "Yes — from day 1, isMATCHEO works as an installable Progressive Web App on any phone. Native apps come next.", "cta.h2": "What if the next person you meet <br class=\"hidden sm:block\"/>\n          <span class=\"grad-text\">changes everything?</span>", "cta.lead": "Join the waitlist and get priority access to the private beta.", "cta.placeholder": "you@email.com", "cta.btn": "I want in early 🚀", "cta.thanks": "All set! We'll write when the beta opens. 💌", "cta.s1": "🔐 Zero spam", "cta.s2": "⏱️ 30 seconds to complete", "cta.s3": "🎁 Exclusive perks for early users", "footer.tagline": "Where brilliant minds meet", "footer.copy": "© 2026 isMATCHEO · Made with 💜 for restless minds.", "footer.privacy": "Privacy", "footer.terms": "Terms", "footer.contact": "Contact"}};
+  function setLang(lang) {
+    if (!I18N[lang]) lang = 'es';
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('isMatcheoLang', lang); } catch(e) {}
+    const dict = I18N[lang];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if (dict[k]) el.innerHTML = dict[k];
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const k = el.getAttribute('data-i18n-placeholder');
+      if (dict[k]) el.setAttribute('placeholder', dict[k]);
+    });
+    // update toggle
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+  }
+  // wire toggle
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.getAttribute('data-lang')));
+  });
+  // init
+  let initLang = 'es';
+  try { initLang = localStorage.getItem('isMatcheoLang') || (navigator.language || 'es').slice(0,2); } catch(e) {}
+  if (initLang !== 'en') initLang = 'es';
+  setLang(initLang);
 </script>
 
 </body>

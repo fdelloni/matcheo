@@ -8,7 +8,7 @@
 <title>isMATCHEO · Donde las mentes brillantes se encuentran 🧠✨</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800&family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -238,6 +238,10 @@
   }
 
 
+  /* New SVG wordmark */
+  .brand-wordmark { height: 28px; width: auto; color: #f5f3ff; display: block; flex-shrink: 0; }
+  @media (min-width: 640px) { .brand-wordmark { height: 32px; } }
+
   /* Lang toggle */
   .lang-toggle { display: inline-flex; align-items: center; gap: 4px; }
   .lang-btn { background: transparent; border: none; padding: 4px 8px; border-radius: 6px; color: rgba(196,181,253,0.55); cursor: pointer; font-size: 12px; font-weight: 500; transition: all 0.15s ease; font-family: inherit; }
@@ -283,7 +287,7 @@
             <line x1="30" y1="10" x2="30" y2="48" stroke="#fbbf24" stroke-width="1.2" opacity="0.7"/>
           </svg>
         </div>
-        <span class="brand-logo text-xl"><span class="brand-is"><span class="brand-i"><span class="brand-letter">ı</span><span class="brand-arrows"><svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="brandArrows" x1="0" x2="1"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#ec4899"/></linearGradient></defs><path class="arrow-top" d="M6 22 L 50 22 L 44 14 M50 22 L 44 30" fill="none" stroke="url(#brandArrows)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="arrow-bot" d="M54 38 L 10 38 L 16 30 M10 38 L 16 46" fill="none" stroke="url(#brandArrows)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>s</span><span class="brand-main">MATCHEO</span></span>
+        <svg class="brand-wordmark" viewBox="0 0 276.24 50.4" aria-label="isMATCHEO" role="img"><g fill="currentColor"><rect x="0" y="12" width="11.52" height="7.92" rx="3.96" ry="3.96"/><rect x="0" y="23.52" width="11.52" height="24.48" rx="2.53" ry="2.53"/><text x="13.68" y="48" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="69.9" letter-spacing="-0.01em">s</text></g><text x="57.84" y="48" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="68.57" fill="currentColor" letter-spacing="-0.01em">MATCHEO</text></svg>
         <span class="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest text-violet-300/80 bg-violet-500/10 border border-violet-400/20 rounded px-1.5 py-0.5">beta</span>
       </a>
       <div class="hidden md:flex items-center gap-7 text-sm font-medium text-violet-100/85">
@@ -1086,7 +1090,7 @@
           </svg>
         </div>
         <div>
-          <div class="brand-logo text-lg leading-tight"><span class="brand-is"><span class="brand-i"><span class="brand-letter">ı</span><span class="brand-arrows"><svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="brandArrows" x1="0" x2="1"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#ec4899"/></linearGradient></defs><path class="arrow-top" d="M6 22 L 50 22 L 44 14 M50 22 L 44 30" fill="none" stroke="url(#brandArrows)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="arrow-bot" d="M54 38 L 10 38 L 16 30 M10 38 L 16 46" fill="none" stroke="url(#brandArrows)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>s</span><span class="brand-main">MATCHEO</span></div>
+          <div class="leading-tight"><svg class="brand-wordmark" viewBox="0 0 276.24 50.4" aria-label="isMATCHEO" role="img" style="height:24px"><g fill="currentColor"><rect x="0" y="12" width="11.52" height="7.92" rx="3.96" ry="3.96"/><rect x="0" y="23.52" width="11.52" height="24.48" rx="2.53" ry="2.53"/><text x="13.68" y="48" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="69.9" letter-spacing="-0.01em">s</text></g><text x="57.84" y="48" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="68.57" fill="currentColor" letter-spacing="-0.01em">MATCHEO</text></svg></div>
           <div class="text-xs text-violet-200/60" data-i18n="footer.tagline">Donde las mentes brillantes se encuentran</div>
         </div>
       </div>

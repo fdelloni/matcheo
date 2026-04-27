@@ -186,7 +186,7 @@
   .stage-card { transition: transform 0.3s ease; }
   .stage-card:hover { transform: translateY(-6px) rotate(-0.5deg); }
 
-  /* Brand logo isMATCHEO */
+  /* Brand logo isMATCHEO — layout v2: "is" más chica + dot protagónico */
   .brand-logo {
     display: inline-flex;
     align-items: baseline;
@@ -195,35 +195,35 @@
     font-family: 'Space Grotesk', system-ui, sans-serif;
     font-weight: 700;
   }
-  .brand-is { font-weight: 500; opacity: 0.92; }
+  .brand-is {
+    font-weight: 500;
+    opacity: 0.92;
+    font-size: 0.62em;
+    margin-right: 0.18em;
+  }
   .brand-i {
     position: relative;
     display: inline-block;
   }
   .brand-i .brand-letter { display: inline-block; }
 
-  /* Dos círculos overlap (Venn) arriba de la "i" — el match literal */
-  .brand-venn {
+  /* Doble flecha de intercambio arriba de la "i" — reciprocidad */
+  .brand-arrows {
     position: absolute;
-    top: -0.46em;
+    top: -1em;
     left: 50%;
-    width: 1.15em;
-    height: 0.72em;
+    width: 1.55em;
+    height: 1em;
     transform: translateX(-50%);
     pointer-events: none;
-    filter: drop-shadow(0 0 4px rgba(236, 72, 153, 0.45)) drop-shadow(0 0 9px rgba(124, 58, 237, 0.3));
+    filter: drop-shadow(0 0 4px rgba(236, 72, 153, 0.5)) drop-shadow(0 0 9px rgba(34, 211, 238, 0.3));
   }
-  .brand-venn svg { width: 100%; height: 100%; display: block; overflow: visible; }
-  .brand-venn .v-circle { transform-origin: center; animation: venn-breath 3.2s ease-in-out infinite; }
-  .brand-venn .v-circle-2 { animation-delay: -1.6s; }
-  .brand-venn .v-spark { transform-origin: center; animation: venn-spark 2.2s ease-in-out infinite; }
-  @keyframes venn-breath {
-    0%, 100% { opacity: 0.85; transform: scale(1); }
-    50%      { opacity: 1;    transform: scale(1.07); }
-  }
-  @keyframes venn-spark {
-    0%, 100% { opacity: 0.9; transform: scale(1); }
-    50%      { opacity: 1;   transform: scale(1.18); }
+  .brand-arrows svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .brand-arrows .arrow-top { animation: arrow-pulse 2.6s ease-in-out infinite; }
+  .brand-arrows .arrow-bot { animation: arrow-pulse 2.6s ease-in-out infinite; animation-delay: -1.3s; }
+  @keyframes arrow-pulse {
+    0%, 100% { opacity: 0.85; }
+    50%      { opacity: 1; }
   }
   .brand-main { font-weight: 700; }
 
@@ -281,7 +281,7 @@
             <g class="logo-icon-orb logo-icon-orb-2"><circle cx="23" cy="18" r="6" fill="url(#navOrb2)"/></g>
           </svg>
         </div>
-        <span class="brand-logo text-xl"><span class="brand-is"><span class="brand-i"><span class="brand-letter">ı</span><span class="brand-venn"><svg viewBox="0 0 14 10" aria-hidden="true"><circle class="v-circle" cx="4.2" cy="5" r="3.8" fill="#ec4899" opacity="0.85"/><circle class="v-circle v-circle-2" cx="9.8" cy="5" r="3.8" fill="#7c3aed" opacity="0.85"/><ellipse class="v-spark" cx="7" cy="5" rx="1.3" ry="2.6" fill="#fbbf24"/></svg></span></span>s</span><span class="brand-main">MATCHEO</span></span>
+        <span class="brand-logo text-xl"><span class="brand-is"><span class="brand-i"><span class="brand-letter">ı</span><span class="brand-arrows"><svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="brandArrows" x1="0" x2="1"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#ec4899"/></linearGradient></defs><path class="arrow-top" d="M6 22 L 50 22 L 44 14 M50 22 L 44 30" fill="none" stroke="url(#brandArrows)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="arrow-bot" d="M54 38 L 10 38 L 16 30 M10 38 L 16 46" fill="none" stroke="url(#brandArrows)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>s</span><span class="brand-main">MATCHEO</span></span>
         <span class="hidden sm:inline-block text-[10px] font-mono uppercase tracking-widest text-violet-300/80 bg-violet-500/10 border border-violet-400/20 rounded px-1.5 py-0.5">beta</span>
       </a>
       <div class="hidden md:flex items-center gap-7 text-sm font-medium text-violet-100/85">
@@ -1075,7 +1075,7 @@
           </svg>
         </div>
         <div>
-          <div class="brand-logo text-lg leading-tight"><span class="brand-is"><span class="brand-i"><span class="brand-letter">ı</span><span class="brand-venn"><svg viewBox="0 0 14 10" aria-hidden="true"><circle class="v-circle" cx="4.2" cy="5" r="3.8" fill="#ec4899" opacity="0.85"/><circle class="v-circle v-circle-2" cx="9.8" cy="5" r="3.8" fill="#7c3aed" opacity="0.85"/><ellipse class="v-spark" cx="7" cy="5" rx="1.3" ry="2.6" fill="#fbbf24"/></svg></span></span>s</span><span class="brand-main">MATCHEO</span></div>
+          <div class="brand-logo text-lg leading-tight"><span class="brand-is"><span class="brand-i"><span class="brand-letter">ı</span><span class="brand-arrows"><svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="brandArrows" x1="0" x2="1"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#ec4899"/></linearGradient></defs><path class="arrow-top" d="M6 22 L 50 22 L 44 14 M50 22 L 44 30" fill="none" stroke="url(#brandArrows)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path class="arrow-bot" d="M54 38 L 10 38 L 16 30 M10 38 L 16 46" fill="none" stroke="url(#brandArrows)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>s</span><span class="brand-main">MATCHEO</span></div>
           <div class="text-xs text-violet-200/60">Donde las mentes brillantes se encuentran</div>
         </div>
       </div>
